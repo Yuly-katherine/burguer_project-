@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Satisfy&family=Yeseva+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="../css/styles.css"/>
+    <title>Burguer</title>
+  </head>
+  <body>
+    <!------------------------- Menu --------------------------------->
+    <div class="burguer">
+      <nav class="burguer-header">
+        <div class="burguer-header__menu-logo">
+          <img class="logo" src="../img/burger.png" alt="burguer" />
+          <span class="nombre">Burger Chips</span>
+        </div>
+        <ul class="burguer-header__menu">
+            <li><a href="../index.html">Nosotros</a></li>
+            <li><a href="#carta">Carta</a></li>
+            <li><a href="./sedes.html">Sedes</a></li>
+            <li><a href="./domicilios.html">Domicilios</a></li>
+            <li><a href="./trabajaConNosotros.html">Trabaja con nosotros</a></li>
+          </ul>
+      </nav>
+      <!------------------------- Content --------------------------------->
+      <main class="burguer-content" id="carta">
+        <section class="burguer-carta__img1">
+          <h1 class="burguer-carta__img1-text">MENOS BLA BLA Y MÁS HAMBURGUESAS</h1>
+        </section>
+        <section  class="burguer-carta__carta" id="nosotros">
+            <h1 class="burguer-carta__carta-text">CARTA BURGUER CHIPS</h1>
+            <iframe class="burguer-carta__carta-files"src="../files/carta.pdf"></iframe>
+        </section>
+      </main>
+      <!------------------------- Footer --------------------------------->
+      <footer class="burguer-footer">
+        <div class="burguer-domicile">
+            <img class="motorcycle-img" src="../img/motorcycle.png" >
+            <a class="button-domicile" href="./domicilios.html">Domicilios</a>
+        </div>
+        <div class="burguer-social-media">
+            <div  class="burguer-social-media__type">
+                <img src="../img/instagram.png" alt="instagram">
+                <span>@burgerChips</span>
+            </div>
+            <div  class="burguer-social-media__type">
+                <img src="../img/facebook.png" alt="facebook">
+                <span>Burger Chips</span>
+            </div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+  </body>
+</html>
