@@ -546,6 +546,12 @@ a:hover{
     background-color: rgb(255,206,236,0.6);
 }
 
+@media(max-width: 500px){
+    .burguer-nosotros__formulario{
+        background-color: rgba(116, 87, 104, 0.6);  
+    }  
+}
+
 .burguer-nosotros__formulario-text{
     background-color: #fff;
     font-family: 'Yeseva One', cursive;
