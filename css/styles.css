@@ -505,6 +505,9 @@ a:hover{
     .burguer-img3{
       display:none;
     }
+    .burguer-sede__text{
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 600px){
@@ -548,7 +551,7 @@ a:hover{
 
 @media(max-width: 500px){
     .burguer-nosotros__formulario{
-        background-color: rgba(116, 87, 104, 0.6);  
+        background-color: #73C3AF;  
     }  
 }
 
