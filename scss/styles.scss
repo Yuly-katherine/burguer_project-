@@ -1,15 +1,19 @@
 /* --------Reseteo--------*/
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 .burguer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 150px auto 500px; }
+  grid-template-rows: 150px auto 500px;
+}
 
 /* --------Header --------*/
+
 .burguer-header {
   grid-row: 1/2;
   grid-column: 1/5;
@@ -17,46 +21,58 @@
   display: flex;
   justify-content: space-evenly;
   color: #fff;
-  width: 100%; }
-  .burguer-header__menu {
+  width: 100%;
+  &__menu {
     display: flex;
     align-items: center;
     font-size: 1rem;
     list-style: none;
     font-family: "Montserrat", sans-serif;
-    font-weight: bold; }
-    .burguer-header__menu li {
-      margin: 0 25px; }
-  .burguer-header__menu-logo {
+    font-weight: bold;
+    li {
+      margin: 0 25px;
+    }
+  }
+  &__menu-logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+  }
+}
 
 a {
   text-decoration: none;
-  color: #fff; }
+  color: #fff;
+}
 
 a:hover {
   color: #ffce12;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+}
+
 
 .logo {
   width: 50px;
-  height: 50px; }
+  height: 50px;
+}
 
 .nombre {
   font-family: "Satisfy", cursive;
-  font-size: 2rem; }
+  font-size: 2rem;
+}
 
 /* --------content --------*/
+
 .burguer-content {
   grid-row: 2/3;
   grid-column: 1/5;
-  width: 100%; }
-  .burguer-content__img1 {
+  width: 100%;
+  &__img1 {
     height: auto;
-    width: 100%; }
+    width: 100%;
+  }
+}
 
 .burguer-content__img2 {
   background-image: url("http://officeburger.com/wp-content/uploads/2022/01/office-en-la-ciudad.jpg");
@@ -67,55 +83,64 @@ a:hover {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; }
-  @media (max-width: 1200px) {
-    .burguer-content__img2 {
-      width: 100%;
-      height: auto; } }
-  @media (max-width: 400px) {
-    .burguer-content__img2 {
-      width: 100%; } }
+  align-items: center;
+  @media(max-width:1200px){
+    width: 100%;
+    height: auto;
+  }
+  @media(max-width:400px){
+    width: 100%;
+  }
+}
 
 .burguer-message {
   width: 50%;
   height: 500px;
-  padding-left: 20px; }
-  @media (max-width: 1200px) {
-    .burguer-message {
-      width: 100%; } }
+  padding-left: 20px;
+  @media(max-width:1200px){
+    width: 100%;
+  }
+}
 
 .text1 {
   display: inline-block;
   font-family: "Yeseva One", cursive;
   background-color: #ffce12;
-  font-size: 2rem; }
+  font-size: 2rem;
 
+}
 .text2 {
   display: inline-block;
   font-family: "Satisfy", cursive;
-  font-size: 2rem; }
-
+  font-size: 2rem;
+ 
+}
 .text3 {
   display: inline-block;
   font-family: "Yeseva One", cursive;
   color: #fff;
   background-color: #000;
-  font-size: 2rem; }
+  font-size: 2rem;
+
+}
 
 .text {
   font-family: "Yeseva One", cursive;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+}
 
 .burguer-img {
   width: 380px;
   height: 380px;
-  padding-left: 10px; }
+  padding-left: 10px;
+}
 
 .burguer-content__carta {
   width: 100%;
   height: 200px;
   text-align: center;
-  padding-top: 80px; }
+  padding-top: 80px;
+}
 
 .button-carta {
   font-family: "Yeseva One", cursive;
@@ -124,35 +149,42 @@ a:hover {
   color: #000;
   padding: 20px 40px;
   border: 4px solid #000;
-  border-radius: 15px; }
+  border-radius: 15px;
+}
 
 .button-carta:hover {
   background-color: #ffce12;
   font-size: 2.8rem;
-  color: #000; }
+  color: #000;
+}
 
 /* --------footer --------*/
+
 .burguer-footer {
   grid-row: 3/4;
   grid-column: 1/5;
   background-color: #000;
-  color: #fff; }
+  color: #fff;
+}
 
 .burguer-domicile {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  align-items: center; }
+  align-items: center;
+}
 
 .motorcycle-img {
   width: 300px;
   height: 300px;
   justify-self: end;
   padding-top: 20px;
-  transition: transform 1s; }
+  transition: transform 1s;
+}
 
 .motorcycle-img:hover {
-  transform: scale(1.2); }
+  transform: scale(1.2);
+}
 
 .button-domicile {
   font-family: "Yeseva One", cursive;
@@ -164,13 +196,15 @@ a:hover {
   border: 4px solid #fff;
   border-radius: 15px;
   width: auto;
-  height: 18%; }
+  height: 18%;
+}
 
 .button-domicile:hover {
   background-color: #fff;
   color: #000;
   font-size: 2.8rem;
-  height: 20%; }
+  height: 20%;
+}
 
 .burguer-social-media {
   background-image: url("../img/footer.png");
@@ -181,88 +215,121 @@ a:hover {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+}
 
 .burguer-social-media__type {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .burguer-social-media__type span {
   color: #000;
   font-family: "Yeseva One", cursive;
   font-weight: bold;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+}
 
 .burguer-social-media__type img {
   width: 40px;
   height: 40px;
   transition: transform 0.3s ease;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 .burguer-social-media__type img:hover {
-  transform: scale(1.2); }
+  transform: scale(1.2);
+}
 
 /* --------media querys --------*/
+
 @media screen and (max-width: 900px) {
   .burguer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 150px auto 500px; }
+    grid-template-rows: 150px auto 500px;
+  }
+
   /* -----header ------*/
   .burguer-header {
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+  }
   .burguer-header__menu-logo {
-    padding-bottom: 5px; }
+    padding-bottom: 5px;
+  }
+
   /* -----content ------*/
+
   .burguer-message {
-    padding-top: 0px; } }
+    padding-top: 0px;
+  }
+}
 
 @media screen and (max-width: 600px) {
   .burguer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 300px auto 500px; }
+    grid-template-rows: 300px auto 500px;
+  }
+
   /* -----header ------*/
   .burguer-header__menu-logo {
-    flex-direction: row; }
+    flex-direction: row;
+  }
   .nombre {
-    margin-left: 10px; }
+    margin-left: 10px;
+  }
   .burguer-header__menu {
     width: 100%;
-    flex-direction: column; }
+    flex-direction: column;
+  }
   .burguer-header__menu li {
     width: 50%;
     text-align: center;
     margin-top: 10px;
     padding: 2px;
     border: 1px solid #ffce12;
-    border-radius: 10px; }
+    border-radius: 10px;
+  }
+
   /* -----content ------*/
+
   .burguer-content__img2 {
-    flex-direction: column; }
+    flex-direction: column;
+  }
   .burguer-message {
-    width: 100%; }
+    width: 100%;
+  }
   .text1,
   .text2,
   .text3 {
-    font-size: 1rem; }
+    font-size: 1rem;
+  }
   .burguer-img {
     width: 280px;
-    height: 280px; }
+    height: 280px;
+  }
+
   /* -----footer ------*/
+
   .burguer-domicile {
     display: flex;
     flex-direction: column;
-    justify-content: center; }
+    justify-content: center;
+  }
+
   .burguer-social-media__type span {
-    font-size: 1rem; } }
+    font-size: 1rem;
+  }
+}
 
 /* ------------------------VISTA CARTA-------------------*/
 /* -----content ------*/
+
 .burguer-carta__img1 {
   background-image: url("http://officeburger.com/wp-content/uploads/2022/01/fondo-carta.jpg");
   background-size: cover;
@@ -271,7 +338,8 @@ a:hover {
   height: 400px;
   width: 100%;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .burguer-carta__img1-text {
   font-family: "Yeseva One", cursive;
@@ -282,31 +350,37 @@ a:hover {
   width: auto;
   border: 2px solid #000;
   border-radius: 15px;
-  padding: 10px; }
+  padding: 10px;
+}
 
 .burguer-carta__carta {
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .burguer-carta__carta-text {
   font-family: "Yeseva One", cursive;
   text-align: center;
   padding: 30px 0;
-  font-size: 2rem; }
+  font-size: 2rem;
+}
 
 .burguer-carta__carta-files {
   height: 800px;
   width: 90%;
-  align-self: center; }
+  align-self: center;
+}
 
 /* ------------------------VISTA SEDES-------------------*/
 /* -----content ------*/
+
 .burguer-sedes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 400px 400px; }
+  grid-template-rows: 400px 400px;
+}
 
 .burguer-sede__text {
   color: #fff;
@@ -318,7 +392,8 @@ a:hover {
   width: 90%;
   height: 13%;
   letter-spacing: 8px;
-  align-self: center; }
+  align-self: center;
+}
 
 .burguer-sedes__img {
   background-size: cover;
@@ -326,97 +401,116 @@ a:hover {
   background-position: center;
   height: 400px;
   width: 100%;
-  display: flex; }
+  display: flex;
+}
+
 
 .img1 {
-  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/envigado-sede.jpg"); }
-
+  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/envigado-sede.jpg");
+}
 .img2 {
-  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-poblado.jpg"); }
-
+  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-poblado.jpg");
+}
 .img3 {
-  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/palmas-sede.jpg"); }
-
+  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/palmas-sede.jpg");
+}
 .img4 {
-  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-laureles.jpg"); }
-
+  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-laureles.jpg");
+}
 .img5 {
-  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-escobero.jpg"); }
-
+  background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-escobero.jpg");
+}
 .img6 {
-  background-image: url("../img/universidad.jpg"); }
+  background-image: url("../img/universidad.jpg");
+}
 
 .burguer-content__img3 {
   background-color: #73c3af;
   height: 500px;
   width: 100%;
-  display: flex; }
+  display: flex;
+}
 
 .burguer-message3 {
   width: 400px;
   padding-left: 40px;
-  padding-top: 110px; }
+  padding-top: 110px;
+}
 
 .text4 {
   display: inline-block;
   font-family: "Yeseva One", cursive;
   color: #fff;
   font-size: 2rem;
-  margin-top: 20px; }
-
+  margin-top: 20px;
+}
 .text5 {
   display: inline-block;
   font-family: "Yeseva One", cursive;
   color: #ffce12;
   font-size: 2rem;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 .text6 {
   margin-bottom: 10px;
   display: inline-block;
   font-family: "Satisfy", cursive;
-  font-size: 2rem; }
+  font-size: 2rem;
+}
 
 .text7 {
   display: inline-block;
   font-family: "Yeseva One", cursive;
   background-color: #ffce12;
-  font-size: 2rem; }
+  font-size: 2rem;
+}
 
 .burguer-img3 {
   margin: 0 auto;
-  margin-top: 70px; }
-
+  margin-top: 70px;
+}
 /* --------media querys SEDES--------*/
+
 @media screen and (max-width: 900px) {
   /* -----content ------*/
+
   .burguer-content__img3 {
     display: flex;
     flex-direction: column;
-    height: 300px; }
+    height: 300px;
+  }
   .burguer-message3 {
     width: 100%;
-    padding-top: 10px; }
+    padding-top: 10px;
+  }
   .burguer-img3 {
-    display: none; } }
+    display: none;
+  }
+}
 
 @media screen and (max-width: 600px) {
   .burguer-sedes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 400px 400px 400px; }
+    grid-template-rows: 400px 400px 400px;
+  }
   .burguer-content__img3 {
-    height: 450px; } }
+    height: 450px;
+  }
+}
 
 /* ------------------------VISTA TRABAJA CON NOSOTROS-------------------*/
 /* -----content ------*/
+
 .burguer-nosotros__img1 {
   background-image: url("https://officeburger.com/wp-content/uploads/2022/01/la-mejor-office.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center right;
   height: 450px;
-  width: 100%; }
+  width: 100%;
+}
 
 .burguer-nosotros__img1-text {
   font-family: "Satisfy", cursive;
@@ -425,32 +519,38 @@ a:hover {
   color: #000;
   text-align: center;
   padding-left: 20px;
-  padding-top: 90px; }
+  padding-top: 90px;
+}
 
 .burguer-nosotros__formulario {
   width: 100%;
   height: 950px;
-  background-color: #f7d0d7; }
+  background-color: #f7d0d7;
+}
 
 .burguer-nosotros__formulario-text {
   background-color: #fff;
   font-family: "Yeseva One", cursive;
   text-align: center;
   padding: 30px 0;
-  font-size: 2rem; }
+  font-size: 2rem;
+}
 
 .burguer-nosotros__formulario-formulario {
   margin: 100px auto 0 auto;
-  width: 60%; }
+  width: 60%;
+}
 
 .burguer-nosotros__info {
   display: flex;
   flex-direction: column;
-  padding: 15px; }
+  padding: 15px;
+}
 
 .burguer-nosotros__label {
   font-family: "Yeseva One", cursive;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+}
 
 .burguer-nosotros__input {
   background: #fff;
@@ -458,10 +558,12 @@ a:hover {
   border-radius: 15px;
   border: none;
   margin-top: 10px;
-  outline: none; }
+  outline: none;
+}
 
 .burguer-nosotros__input option {
-  font-family: "Yeseva One", cursive; }
+  font-family: "Yeseva One", cursive;
+}
 
 .burguer-nosotros__submit {
   font-family: "Yeseva One", cursive;
@@ -473,22 +575,26 @@ a:hover {
   border-radius: 15px;
   margin-top: 30px;
   padding: 10px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .burguer-nosotros__submit:hover {
   background-color: #ffce12;
   color: #000;
-  padding: 15px; }
+  padding: 15px;
+}
 
 /* ------------------------VISTA DOMICILIOS-------------------*/
 /* -----content ------*/
+
 .burguer-domicilios__img1 {
   background-image: url("https://tofuu.getjusto.com/orioneat-prod-resized/2SYnoZD5AKCFk9uke-x-2000.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 550px;
-  width: 100%; }
+  width: 100%;
+}
 
 .burguer-domicilios__img1-text {
   font-family: "Satisfy", cursive;
@@ -496,14 +602,16 @@ a:hover {
   font-size: 4rem;
   color: #fff;
   padding-left: 20px;
-  padding-top: 90px; }
+  padding-top: 90px;
+}
 
 .burguer-domicilios__title {
   background-color: #fff;
   font-family: "Yeseva One", cursive;
   text-align: center;
   padding: 30px 0;
-  font-size: 2rem; }
+  font-size: 2rem;
+}
 
 .burguer-domicilios {
   margin: 20px auto;
@@ -511,21 +619,24 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 200px);
-  gap: 10px; }
+  gap: 10px;
+}
 
 .burguer-domicilios__burguer {
   height: 200px;
   border-radius: 10px;
   padding: 5px;
   box-shadow: -4px 7px 17px -10px #000;
-  display: flex; }
+  display: flex;
+}
 
 .burguer-domicilios__burguer-img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 190px;
-  width: 190px; }
+  width: 190px;
+}
 
 .burguer-domicilios__burguer-text {
   width: 100%;
@@ -535,11 +646,13 @@ a:hover {
   margin: 10px;
   font-family: "Montserrat", sans-serif;
   font-weight: normal;
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+}
 
 .burguer-domicilios__burguer-text p {
   font-family: "Yeseva One", cursive;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .burguer-domicilios__burguer-text button {
   font-family: "Montserrat", sans-serif;
@@ -547,19 +660,27 @@ a:hover {
   color: #fff;
   width: 100%;
   border: none;
-  padding: 5px; }
+  padding: 5px;
+}
 
-.precio {
+.precio{
   font-family: "Yeseva One", cursive;
   font-weight: bold;
-  font-size: 1rem; }
+  font-size: 1rem;
+
+}
 
 /* --------media querys DOMICILIOS--------*/
+
 @media screen and (max-width: 1200px) {
   /* -----content ------*/
-  .burguer-domicilios {
-    grid-template-columns: repeat(2, 1fr); } }
 
+  .burguer-domicilios {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media screen and (max-width: 720px) {
   .burguer-domicilios {
-    grid-template-columns: 1fr; } }
+    grid-template-columns: 1fr;
+  }
+}

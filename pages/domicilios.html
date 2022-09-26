@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../img/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Satisfy&family=Yeseva+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="../css/styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Satisfy&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
     <title>Burguer</title>
   </head>
   <body>
@@ -21,304 +27,214 @@
           <span class="nombre">Burger Chips</span>
         </div>
         <ul class="burguer-header__menu">
-            <li><a href="../index.html">Nosotros</a></li>
-            <li><a href="./carta.html">Carta</a></li>
-            <li><a href="./sedes.html">Sedes</a></li>
-            <li><a href="#domicilios">Domicilios</a></li>
-            <li><a href="./trabajaConNosotros.html">Trabaja con nosotros</a></li>
-          </ul>
+          <li><a href="../index.html">Nosotros</a></li>
+          <li><a href="./carta.html">Carta</a></li>
+          <li><a href="./sedes.html">Sedes</a></li>
+          <li><a href="#domicilios">Domicilios</a></li>
+          <li><a href="./trabajaConNosotros.html">Trabaja con nosotros</a></li>
+        </ul>
       </nav>
       <!------------------------- Content --------------------------------->
       <main class="burguer-content">
-        <section class="burguer-domicilios__img1">
-          <h1 class="burguer-domicilios__img1-text">BURGUER LOVERS🤍</h1>
-        </section>
+        <section class="burguer-domicilios__img1"></section>
+
+        <!------------------------- Hamburguesas-------------------------->
+        <section class="burguer-content__carta animate__animated animate__pulse">
+          <button  onclick="comprarBurger()" class="button-carta" href="./pages/carta.html">Comprar
+              <img src="../img/emoticon.png" alt="carta" width="30px" height="30px">
+          </button>
+      </section>
         <section>
           <h1 class="burguer-domicilios__title" id="domicilios">
             Hamburguesas
           </h1>
         </section>
-        <section  class="burguer-domicilios">
+        <section class="burguer-domicilios">
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo1.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/mjxgZ2KwZyPBx2aaG-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
               <p>Bulleit Queen</p>
               <span>Pan brioche, 150 grs de carne premium, queso</span>
-              <button >Agregar</button>
+              <!-- <button>Agregar</button> -->
+              <span class="precio">$33.500 COP</span>
             </div>
           </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo2.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-local/resized2/HYWPSc3SCBsZg75wd-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
               <p>Candy Crunch</p>
-              <span>Pan brioche, mayonesa de la casa, mézclum de lechugas, 150 gms de carne premiun, queso cheddar.</span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo3.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Jack Philadelphia</p>
-              <span>Pan brioche, 150 grs de carne premium, queso philadelfia, tocineta bañada en BBQ Jack Daniels, cebolla caramelizada en cerveza.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div>  
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo4.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Triple X</p>
-              <span>Pan brioche, 100 grs de carne premium, 60 grs de bondiola de cerdo en Bbq Sailor, queso philadelfia, tocineta apanada y mezclum de lechugas.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo5.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Classic</p>
-              <span>Pan brioche, 150 grs de carne premium, queso cheddar, tocineta ahumada, cebolla caramelizada en cerveza,lechuga y tomate.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo6.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Hawaii</p>
-              <span>Pan brioche, 150 grs de carne premium, jamón de york, queso americano, piña asada, BBQ, lechuga y tomate.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div>   
-          
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo1.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Bulleit Queen</p>
-              <span>Pan brioche, 150 grs de carne premium, queso</span>
-              <button >Agregar</button>
+              <span>Pan brioche, mayonesa de la casa.</span>
+              <span class="precio">$31.900 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
           </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo2.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Candy Crunch</p>
-              <span>Pan brioche, mayonesa de la casa, mézclum de lechugas, 150 gms de carne premiun, queso cheddar.</span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo3.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/tJ4x6AYP3fmbFNTFg-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
               <p>Jack Philadelphia</p>
-              <span>Pan brioche, 150 grs de carne premium, queso philadelfia, tocineta bañada en BBQ Jack Daniels, cebolla caramelizada en cerveza.
+              <span
+                >Pan brioche, 150 grs de carne premium, queso philadelfia.
               </span>
-              <button >Agregar</button>
+              <span class="precio">$32.500 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
-          </div>  
+          </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo4.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/m9ZdtkhW7tHhmeMtQ-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
               <p>Triple X</p>
-              <span>Pan brioche, 100 grs de carne premium, 60 grs de bondiola de cerdo en Bbq Sailor, queso philadelfia, tocineta apanada y mezclum de lechugas.
+              <span
+                >Pan brioche, 100 grs de carne premium, 60 grs de bondiola de
+                cerdo.
               </span>
-              <button >Agregar</button>
+              <span class="precio">$32.900 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
-          </div> 
+          </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo5.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/4unFA9hhMqsGj6rG3-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
               <p>Classic</p>
-              <span>Pan brioche, 150 grs de carne premium, queso cheddar, tocineta ahumada, cebolla caramelizada en cerveza,lechuga y tomate.
+              <span
+                >Pan brioche, 150 grs de carne premium, queso cheddar.
               </span>
-              <button >Agregar</button>
+              <span class="precio">$28.900 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
-          </div> 
+          </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo6.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/2CNhPGb63jLWp5b9x-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
               <p>Hawaii</p>
-              <span>Pan brioche, 150 grs de carne premium, jamón de york, queso americano, piña asada, BBQ, lechuga y tomate.
-              </span>
-              <button >Agregar</button>
+              <span>Pan brioche, 150 grs de carne premium. </span>
+              <span class="precio">$33.500 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
-          </div> 
+          </div>
+        </section>
 
+        <!------------------------- Bebidas-------------------------->
+        <section>
+          <h1 class="burguer-domicilios__title" id="domicilios">
+            Bebidas
+          </h1>
+        </section>
+        <section class="burguer-domicilios">
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo1.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/kDBaFx8G8PjwqLGdm-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
-              <p>Bulleit Queen</p>
-              <span>Pan brioche, 150 grs de carne premium, queso</span>
-              <button >Agregar</button>
+              <p> Jugo de Piña</p>
+              <span class="precio">$8.500 COP</span>
             </div>
           </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo2.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/NSCvvxpPDfgkseWgT-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
-              <p>Candy Crunch</p>
-              <span>Pan brioche, mayonesa de la casa, mézclum de lechugas, 150 gms de carne premiun, queso cheddar.</span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo3.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Jack Philadelphia</p>
-              <span>Pan brioche, 150 grs de carne premium, queso philadelfia, tocineta bañada en BBQ Jack Daniels, cebolla caramelizada en cerveza.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div>  
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo4.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Triple X</p>
-              <span>Pan brioche, 100 grs de carne premium, 60 grs de bondiola de cerdo en Bbq Sailor, queso philadelfia, tocineta apanada y mezclum de lechugas.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo5.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Classic</p>
-              <span>Pan brioche, 150 grs de carne premium, queso cheddar, tocineta ahumada, cebolla caramelizada en cerveza,lechuga y tomate.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo6.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Hawaii</p>
-              <span>Pan brioche, 150 grs de carne premium, jamón de york, queso americano, piña asada, BBQ, lechuga y tomate.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo1.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Bulleit Queen</p>
-              <span>Pan brioche, 150 grs de carne premium, queso</span>
-              <button >Agregar</button>
+              <p>Limonada</p>
+              <span class="precio">$7.500 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
           </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo2.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/G8c2EML7GvYQwY6sD-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
-              <p>Candy Crunch</p>
-              <span>Pan brioche, mayonesa de la casa, mézclum de lechugas, 150 gms de carne premiun, queso cheddar.</span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo3.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Jack Philadelphia</p>
-              <span>Pan brioche, 150 grs de carne premium, queso philadelfia, tocineta bañada en BBQ Jack Daniels, cebolla caramelizada en cerveza.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div>  
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo4.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Triple X</p>
-              <span>Pan brioche, 100 grs de carne premium, 60 grs de bondiola de cerdo en Bbq Sailor, queso philadelfia, tocineta apanada y mezclum de lechugas.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo5.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Classic</p>
-              <span>Pan brioche, 150 grs de carne premium, queso cheddar, tocineta ahumada, cebolla caramelizada en cerveza,lechuga y tomate.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo6.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Hawaii</p>
-              <span>Pan brioche, 150 grs de carne premium, jamón de york, queso americano, piña asada, BBQ, lechuga y tomate.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo1.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Bulleit Queen</p>
-              <span>Pan brioche, 150 grs de carne premium, queso</span>
-              <button >Agregar</button>
+              <p>Limonada de coco</p>
+              <span class="precio">$10.500 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
           </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo2.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/y33cD4ox3fbAo6vmW-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
-              <p>Candy Crunch</p>
-              <span>Pan brioche, mayonesa de la casa, mézclum de lechugas, 150 gms de carne premiun, queso cheddar.</span>
-              <button >Agregar</button>
+              <p>Gaseosa</p>
+              
+              <span class="precio">$5.500 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
-          </div> 
+          </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo3.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/7ywaE4FmQ7Ch2rXZ5-350-350.webp"
+            />
             <div class="burguer-domicilios__burguer-text">
-              <p>Jack Philadelphia</p>
-              <span>Pan brioche, 150 grs de carne premium, queso philadelfia, tocineta bañada en BBQ Jack Daniels, cebolla caramelizada en cerveza.
-              </span>
-              <button >Agregar</button>
+              <p>Cerveza</p>
+              <span class="precio">$11.500 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
-          </div>  
+          </div>
           <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo4.jpg" alt="burguer1">
+            <img
+              class="burguer-domicilios__burguer-img"
+              src="https://tofuu.getjusto.com/orioneat-prod-resized/EELNyvGRFS5oQhatZ-350-350.webp"
+              alt="burguer1"
+            />
             <div class="burguer-domicilios__burguer-text">
-              <p>Triple X</p>
-              <span>Pan brioche, 100 grs de carne premium, 60 grs de bondiola de cerdo en Bbq Sailor, queso philadelfia, tocineta apanada y mezclum de lechugas.
-              </span>
-              <button >Agregar</button>
+              <p>Hatsu</p>
+              <span class="precio">$8.900 COP</span>
+              <!-- <button >Agregar</button> -->
             </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo5.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Classic</p>
-              <span>Pan brioche, 150 grs de carne premium, queso cheddar, tocineta ahumada, cebolla caramelizada en cerveza,lechuga y tomate.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-          <div class="burguer-domicilios__burguer">
-            <img class="burguer-domicilios__burguer-img" src="../img/domicilios/tipo6.jpg" alt="burguer1">
-            <div class="burguer-domicilios__burguer-text">
-              <p>Hawaii</p>
-              <span>Pan brioche, 150 grs de carne premium, jamón de york, queso americano, piña asada, BBQ, lechuga y tomate.
-              </span>
-              <button >Agregar</button>
-            </div>
-          </div> 
-      </section>
+          </div>
+        </section>
       </main>
       <!------------------------- Footer --------------------------------->
       <footer class="burguer-footer">
         <div class="burguer-domicile">
-            <img class="motorcycle-img" src="../img/motorcycle.png" >
-            <a class="button-domicile" href="#domicilios">Domicilios</a>
+          <img
+            class="motorcycle-img"
+            src="https://officeburger.com/wp-content/uploads/2022/01/domicilios-office-burger.svg"
+          />
+          <a class="button-domicile" href="#domicilios">Domicilios</a>
         </div>
         <div class="burguer-social-media">
-            <div  class="burguer-social-media__type">
-                <img src="../img/instagram.png" alt="instagram">
-                <span>@burgerChips</span>
-            </div>
-            <div  class="burguer-social-media__type">
-                <img src="../img/facebook.png" alt="facebook">
-                <span>Burger Chips</span>
-            </div>
+          <div class="burguer-social-media__type">
+            <img src="../img/instagram.png" alt="instagram" />
+            <span>@burgerChips</span>
+          </div>
+          <div class="burguer-social-media__type">
+            <img src="../img/facebook.png" alt="facebook" />
+            <span>Burger Chips</span>
+          </div>
         </div>
       </footer>
     </div>
@@ -326,5 +242,7 @@
     <script>
       new WOW().init();
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../javascript.js/domicilios.js"></script>
   </body>
 </html>
