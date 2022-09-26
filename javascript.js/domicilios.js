@@ -166,5 +166,11 @@ function domicilio() {
     let totalCompra = precioTotalBurger + precioTotalBebidas + precioDomicilio
 
     alert("Resumen:  \n Total hamburguesas: $" + precioTotalBurger + "COP \n Total Bebidas: $" + precioTotalBebidas + "COP  \n Domicilio:$" + precioDomicilio + "COP \n Total:$"+ totalCompra +"COP \n Gracias por tu compra" );
+    vaciarCarrito()
+}  
 
-}   
+function vaciarCarrito() {
+    precioTotalBurger = 0
+    precioTotalBebidas = 0
+
+}
