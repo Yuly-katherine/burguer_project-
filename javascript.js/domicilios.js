@@ -154,8 +154,10 @@ function comprarBebida() {
         }
         if (precioTotalBebidas != 0 ){
             domicilio()
-        }
-    
+        }    
+    }
+    if (precioTotalBurger != 0){
+        domicilio()
     }
 }
 
