@@ -24,7 +24,7 @@ let piña = new Producto( "Jugo fresa", 8500, "Bebida", "", "https://tofuu.getju
 
 let limonada = new Producto( "Limonada", 7500, "Bebida", "", "https://tofuu.getjusto.com/orioneat-prod-resized/NSCvvxpPDfgkseWgT-350-350.webp")
 
-let coco = new Producto( "Limoada de Coco", 10500, "Bebida", "", "https://tofuu.getjusto.com/orioneat-prod-resized/G8c2EML7GvYQwY6sD-350-350.webp")
+let coco = new Producto( "Limonada de Coco", 10500, "Bebida", "", "https://tofuu.getjusto.com/orioneat-prod-resized/G8c2EML7GvYQwY6sD-350-350.webp")
 
 let gaseosa = new Producto( "Gaseosa", 5500, "Bebida", "", "https://tofuu.getjusto.com/orioneat-prod-resized/wYedtgMwWKWPqn3gR-350-350.webp")
 
@@ -32,8 +32,20 @@ let cerveza = new Producto( "Cerveza", 11500, "Bebida", "", "https://tofuu.getju
 
 let hatsu = new Producto( "Hatsu", 5000, "Bebida", "", "https://tofuu.getjusto.com/orioneat-prod-resized/EELNyvGRFS5oQhatZ-350-350.webp")
 
+let arosCebollas = new Producto( "Aros de Cebolla",21000, "Entradas", "Aros de cebolla artesanales súper crujientes, servidos con guacamole.","https://tofuu.getjusto.com/orioneat-prod-resized/pTD4QRbZEHEXp3RMm-350-350.webp")
 
-listaDeProductos = [queen,candy, jack, tripleX, classic, hawaii, piña, limonada, coco, gaseosa, cerveza, hatsu]
+let cheeseFries = new Producto( "Blue Cheese Fries",21500, "Entradas", "Papas a la francesa, servidas con tocineta ahumada, bites de queso azul, salsa sriracha y cilantro.","https://tofuu.getjusto.com/orioneat-prod-resized/DLM2NwB4ABnatd5sZ-350-350.webp")
+
+let chickenTenders = new Producto( "Chicken Tenders",24500, "Entradas", "Crujientes deditos de pollo, acompañados de papas a la francesa y miel.","https://tofuu.getjusto.com/orioneat-local/resized2/ZvYDQKGoGejZN75Cs-350-350.webp")
+
+let babyBeef = new Producto( "Baby Beef",50900, "Parrilla", "250 grs del mas tierno y jugoso corte de solomito madurado, papas de tu elección y ensalada.","https://tofuu.getjusto.com/orioneat-prod-resized/ZtS4LbD96FbREFQr4-350-350.webp")
+
+let churrasco = new Producto( "Churrasco",47900, "Parrilla", "Tierno corte de 250 grs de carne de res madurada, para disfrutar con papas de tu elección y ensalada.","https://tofuu.getjusto.com/orioneat-prod-resized/2xBTArX2gKBhxn3zF-350-350.webp")
+
+let costillas = new Producto( "Costillas Office Bbq",45900, "Parrilla", "Deliciosas costillas preparadas en cocción lenta (25 horas), selladas a la parrilla y bañadas en salsa Bbq de la casa.","https://tofuu.getjusto.com/orioneat-prod-resized/kGN8nAFF4SpdkDqA5-350-350.webp")
+
+
+listaDeProductos = [queen,candy, jack, tripleX, classic, hawaii, piña, limonada, coco, gaseosa, cerveza, hatsu, arosCebollas, cheeseFries, chickenTenders, babyBeef, churrasco, costillas]
 
 let hamburguesas = listaDeProductos.filter((item) => item.categoria === "Hamburguesa")
 let bebidas = listaDeProductos.filter((item) => item.categoria === "Bebida")
@@ -43,7 +55,9 @@ let listaBebidasNombres = bebidas.map((item) => item.nombre)
 
 //------------------------PRODUCTOS EN EL HTML-------------------------------------//
 
-function renderizarProducto(lista, categoria) {
+function renderizarProducto(lista) {
+    let getProductos = document.getElementById("productos")
+    getProductos.innerHTML = ""
     for (const producto of lista) {
         let card = document.createElement("div")
         card.className ="card"
@@ -57,12 +71,26 @@ function renderizarProducto(lista, categoria) {
             <span class="precio">$${producto.precio}</span>
             <button>Agregar</button>
         </div>`
-        categoria.append(card) 
+        getProductos.append(card) 
     }
 }
-let getProductos = document.getElementById("productos")
-renderizarProducto(listaDeProductos, getProductos)
+renderizarProducto(listaDeProductos)
 
+
+//---------------------FILTRAR PRODUCTOS---------------------------------//
+
+let botonFiltrar = document.getElementById('filtrarProductos')
+botonFiltrar.addEventListener('change', () => {filtrarProducto(botonFiltrar.value)})
+
+
+function filtrarProducto(producto){
+    productoSeleccionado = listaDeProductos.filter((el) => el.categoria === producto)
+    if (productoSeleccionado.length) {
+        renderizarProducto(productoSeleccionado)
+    } else {
+        renderizarProducto(listaDeProductos)
+    }
+}
 //---------------------------------------------------------------------------//
 
 let precioTotalBurger = 0
@@ -79,10 +107,13 @@ function calcularPrecioBebida ( precio, cantidad ) {
 }
 
 
-alert("¡Bienvendo a Burger Chips! En este lugar somos buena onda, creemos que lo bueno se comparte, nos gusta dejarla toda en la parrilla.\n Si deseas realizar una compra da click en el botón 'Comprar'.")
+// alert("¡Bienvendo a Burger Chips! En este lugar somos buena onda, creemos que lo bueno se comparte, nos gusta dejarla toda en la parrilla.\n Si deseas realizar una compra da click en el botón 'Comprar'.")
 
 
 //-----------------------COMPRAR HAMBURGUESA------------------------------------//
+
+let botonComprar = document.getElementById("comprar")
+botonComprar.addEventListener("click", comprarBurguer)
 
 function comprarBurguer() {
 
