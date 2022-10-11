@@ -70,7 +70,7 @@
   padding: 30px 0;
   font-size: 2rem; }
 
-.domicilios-productos {
+.burguer-domicilios {
   margin: 20px auto;
   padding: 5px;
   display: grid;
@@ -78,39 +78,42 @@
   grid-template-rows: repeat(2, 200px);
   gap: 10px; }
 
-.card {
+.burguer-domicilios__burguer {
+  height: 200px;
   border-radius: 10px;
   padding: 5px;
   box-shadow: -4px 7px 17px -10px #000;
   display: flex; }
-  .card__img {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 190px;
-    width: 190px; }
-  .card__descripcion {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 10px;
+
+.burguer-domicilios__burguer-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 190px;
+  width: 190px; }
+
+.burguer-domicilios__burguer-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 0.8rem; }
+  .burguer-domicilios__burguer-text p {
+    font-family: "Yeseva One", cursive;
+    font-weight: bold; }
+  .burguer-domicilios__burguer-text span {
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .burguer-domicilios__burguer-text button {
     font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 0.8rem; }
-    .card__descripcion p {
-      font-family: "Yeseva One", cursive;
-      font-weight: bold; }
-    .card__descripcion span {
-      overflow: hidden;
-      text-overflow: ellipsis; }
-    .card__descripcion button {
-      font-family: "Montserrat", sans-serif;
-      background-color: #4e4934;
-      color: #fff;
-      width: 100%;
-      border: none;
-      padding: 5px; }
+    background-color: #4e4934;
+    color: #fff;
+    width: 100%;
+    border: none;
+    padding: 5px; }
 
 .precio {
   font-family: "Yeseva One", cursive;
@@ -120,11 +123,11 @@
 /* --------media querys DOMICILIOS--------*/
 @media screen and (max-width: 1200px) {
   /* -----content ------*/
-  .domicilios-productos {
+  .burguer-domicilios {
     grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 720px) {
-  .domicilios-productos {
+  .burguer-domicilios {
     grid-template-columns: 1fr; } }
 
 /* ------------------------VISTA SEDES-------------------*/
