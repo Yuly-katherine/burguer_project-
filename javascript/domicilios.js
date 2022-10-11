@@ -118,8 +118,7 @@ botonComprar.addEventListener("click", comprarBurguer)
 function comprarBurguer() {
 
     let burguerSeleccionada = prompt("Ingrese el número de la hamburguesa que deseas comprar:  \n0  - Queen  \n1  - Candy  \n2  - Jack  \n3  - TripleX  \n4  - Classic \n5  - Hawaii")
-
-    if (burguerSeleccionada >= 1 || burguerSeleccionada <6 ) {
+    if (1 <= burguerSeleccionada <6 && burguerSeleccionada != "") {
 
         for(let i = 0; i< hamburguesas.length ; i=i+1 ) {
              if (burguerSeleccionada == i) {
@@ -147,10 +146,8 @@ function comprarBurguer() {
 
 function comprarBebida() {
 
-    let bebidaSeleccionada = prompt("Ingrese el número de la bebida que deseas comprar:  \n0 - Piña  \n1 - Limonada  \n2 - Coco  \n3 - Gaseosa  \n4 - Cerveza \n5 - Hatsu")
-
-    if (bebidaSeleccionada >= 1 || bebidaSeleccionada <6 ) {
-
+    let bebidaSeleccionada = prompt("Ingrese el número de la bebida que deseas comprar:  \n0 - Jugo de Fresa  \n1 - Limonada  \n2 - Limonada de Coco  \n3 - Gaseosa  \n4 - Cerveza \n5 - Hatsu")
+    if (1 <= bebidaSeleccionada <6 && bebidaSeleccionada != "") {
         for(let i = 0; i< bebidas.length ; i=i+1 ) {
              if (bebidaSeleccionada == i) {
                 let cantidad = parseInt(prompt("Que cantidad de " 
