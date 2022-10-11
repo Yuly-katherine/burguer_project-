@@ -46,16 +46,16 @@
     display: grid;
     grid-template-columns: repeat(2, 48%);
     &__img {
-      
       img{
-        position: absolute;
-        top: 0;
-        left: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         height: 190px;
         width: 190px;
+        width: auto;
       }
     }
     &__descripcion{
@@ -103,15 +103,15 @@
   
   /* --------media querys DOMICILIOS--------*/
   
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     /* -----content ------*/
   
-    .burguer-domicilios{
+    .domicilios-productos{
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  @media screen and (max-width: 720px) {
-    .burguer-domicilios {
+  @media screen and (max-width: 820px) {
+    .domicilios-productos {
       grid-template-columns: 1fr;
     }
   }
