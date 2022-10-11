@@ -1,35 +1,5 @@
 
 //------------------------------------PRODUCTOS----------------------------------//
-//* Tipos de hamburguesas
-
- function Burguer(nombre, precio) {
-    this.nombre = nombre;
-    this.precio = precio;
- }
-
-let queen = new Burguer( "Bulleit Queen", 33500)
-let candy = new Burguer( "Candy Crunch", 31900)
-let jack = new Burguer( "Jack Philadelphia", 32500)
-let tripleX = new Burguer( "Triple X", 32900)
-let classic = new Burguer( "Classic", 28900)
-let hawaii = new Burguer( "Hawaii", 33500)
-
-
-//* Tipos de Bebidas
-
-function Bebida(nombre, precio) {
-    this.nombre = nombre;
-    this.precio = precio;
- }
-
-let piña = new Bebida( "Jugo fresa", 8500)
-let limonada = new Bebida( "Limonada", 7500)
-let coco = new Bebida( "Limoada de Coco", 10500)
-let gaseosa = new Bebida( "Gaseosa", 5500)
-let cerveza = new Bebida( "Cerveza", 11500)
-let hatsu = new Bebida( "Hatsu", 5000)
-
-
 
 //---------------------------------------------------------------------------//
 

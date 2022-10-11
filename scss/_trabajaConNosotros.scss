@@ -1,0 +1,85 @@
+
+/* ------------------------VISTA TRABAJA CON NOSOTROS-------------------*/
+/* -----content ------*/
+
+.burguer-nosotros__img1 {
+    background-image: url("https://officeburger.com/wp-content/uploads/2022/01/la-mejor-office.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+    height: 450px;
+    width: 100%;
+  }
+  
+  .burguer-nosotros__img1-text {
+    font-family: "Satisfy", cursive;
+    font-weight: normal;
+    font-size: 4rem;
+    color: #000;
+    text-align: center;
+    padding-left: 20px;
+    padding-top: 90px;
+  }
+  
+  .burguer-nosotros__formulario {
+    width: 100%;
+    height: 950px;
+    background-color: #f7d0d7;
+  }
+  
+  .burguer-nosotros__formulario-text {
+    background-color: #fff;
+    font-family: "Yeseva One", cursive;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 2rem;
+  }
+  
+  .burguer-nosotros__formulario-formulario {
+    margin: 100px auto 0 auto;
+    width: 60%;
+  }
+  
+  .burguer-nosotros__info {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .burguer-nosotros__label {
+    font-family: "Yeseva One", cursive;
+    font-size: 1.2rem;
+  }
+  
+  .burguer-nosotros__input {
+    background: #fff;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 10px;
+    outline: none;
+  }
+  
+  .burguer-nosotros__input option {
+    font-family: "Yeseva One", cursive;
+  }
+  
+  .burguer-nosotros__submit {
+    font-family: "Yeseva One", cursive;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    margin-top: 30px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .burguer-nosotros__submit:hover {
+    background-color: #ffce12;
+    color: #000;
+    padding: 15px;
+  }
+  

@@ -1,0 +1,102 @@
+
+/* ------------------------VISTA DOMICILIOS-------------------*/
+/* -----content ------*/
+
+.burguer-domicilios__img1 {
+    background-image: url("https://tofuu.getjusto.com/orioneat-prod-resized/2SYnoZD5AKCFk9uke-x-2000.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 550px;
+    width: 100%;
+  }
+  
+  .burguer-domicilios__img1-text {
+    font-family: "Satisfy", cursive;
+    font-weight: normal;
+    font-size: 4rem;
+    color: #fff;
+    padding-left: 20px;
+    padding-top: 90px;
+  }
+  
+  .burguer-domicilios__title {
+    background-color: #fff;
+    font-family: "Yeseva One", cursive;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 2rem;
+  }
+  
+  .domicilios-productos {
+    margin: 20px auto;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 10px;
+  }
+  
+  .card{
+    // height: auto;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: -4px 7px 17px -10px #000;
+    display: flex;
+    &__img {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 190px;
+      width: 190px;
+    }
+    &__descripcion{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 10px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: normal;
+      font-size: 0.8rem;
+      p{
+        font-family: "Yeseva One", cursive;
+        font-weight: bold;
+      }
+      span{
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      button{
+        font-family: "Montserrat", sans-serif;
+        background-color: #4e4934;
+        color: #fff;
+        width: 100%;
+        border: none;
+        padding: 5px;
+      }
+    }
+  }
+  
+  .precio{
+    font-family: "Yeseva One", cursive;
+    font-weight: bold;
+    font-size: 1rem;
+  
+  }
+  
+  /* --------media querys DOMICILIOS--------*/
+  
+  @media screen and (max-width: 1200px) {
+    /* -----content ------*/
+  
+    .domicilios-productos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (max-width: 720px) {
+    .domicilios-productos {
+      grid-template-columns: 1fr;
+    }
+  }
+  

@@ -1,0 +1,128 @@
+
+/* ------------------------VISTA SEDES-------------------*/
+/* -----content ------*/
+
+.burguer-sedes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 400px 400px;
+  }
+  
+  .burguer-sede__text {
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2.8rem;
+    background-color: #0005;
+    border-radius: 5px;
+    width: 90%;
+    height: 13%;
+    letter-spacing: 8px;
+    align-self: center;
+  }
+  
+  .burguer-sedes__img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    width: 100%;
+    display: flex;
+  }
+  
+  
+  .img1 {
+    background-image: url("https://officeburger.com/wp-content/uploads/2022/01/envigado-sede.jpg");
+  }
+  .img2 {
+    background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-poblado.jpg");
+  }
+  .img3 {
+    background-image: url("https://officeburger.com/wp-content/uploads/2022/01/palmas-sede.jpg");
+  }
+  .img4 {
+    background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-laureles.jpg");
+  }
+  .img5 {
+    background-image: url("https://officeburger.com/wp-content/uploads/2022/01/sede-escobero.jpg");
+  }
+  .img6 {
+    background-image: url("../img/universidad.jpg");
+  }
+  
+  .burguer-content__img3 {
+    background-color: #73c3af;
+    height: 500px;
+    width: 100%;
+    display: flex;
+  }
+  
+  .burguer-message3 {
+    width: 400px;
+    padding-left: 40px;
+    padding-top: 110px;
+  }
+  
+  .text4 {
+    display: inline-block;
+    font-family: "Yeseva One", cursive;
+    color: #fff;
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+  .text5 {
+    display: inline-block;
+    font-family: "Yeseva One", cursive;
+    color: #ffce12;
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+  
+  .text6 {
+    margin-bottom: 10px;
+    display: inline-block;
+    font-family: "Satisfy", cursive;
+    font-size: 2rem;
+  }
+  
+  .text7 {
+    display: inline-block;
+    font-family: "Yeseva One", cursive;
+    background-color: #ffce12;
+    font-size: 2rem;
+  }
+  
+  .burguer-img3 {
+    margin: 0 auto;
+    margin-top: 70px;
+  }
+  /* --------media querys SEDES--------*/
+  
+  @media screen and (max-width: 900px) {
+    /* -----content ------*/
+  
+    .burguer-content__img3 {
+      display: flex;
+      flex-direction: column;
+      height: 300px;
+    }
+    .burguer-message3 {
+      width: 100%;
+      padding-top: 10px;
+    }
+    .burguer-img3 {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .burguer-sedes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 400px 400px 400px;
+    }
+    .burguer-content__img3 {
+      height: 450px;
+    }
+  }
+  

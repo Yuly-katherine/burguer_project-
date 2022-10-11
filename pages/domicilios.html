@@ -4,17 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FAVICON -->
     <link rel="shortcut icon" href="../img/favicon.png" />
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Satisfy&family=Yeseva+One&display=swap"
       rel="stylesheet"
     />
+    <!-- ANIMATE -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <!--BOOSTRAP-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!--CSS-->
     <link rel="stylesheet" href="../css/styles.css" />
     <title>Burguer</title>
   </head>
@@ -37,184 +48,45 @@
       <!------------------------- Content --------------------------------->
       <main class="burguer-content">
         <section class="burguer-domicilios__img1"></section>
-
-        <!------------------------- Hamburguesas-------------------------->
-        <section class="burguer-content__carta animate__animated animate__pulse">
-          <button  onclick="comprarBurger()" class="button-carta" href="./pages/carta.html">Comprar
-              <img src="../img/emoticon.png" alt="carta" width="30px" height="30px">
+        <!---- Hamburguesas---->
+        <section
+          class="burguer-content__carta animate__animated animate__pulse"
+        >
+          <button class="button-carta" href="./pages/carta.html">
+            Comprar
+            <img
+              src="../img/emoticon.png"
+              alt="carta"
+              width="30px"
+              height="30px"
+            />
           </button>
-      </section>
+        </section>
         <section>
           <h1 class="burguer-domicilios__title" id="domicilios">
             Hamburguesas
           </h1>
         </section>
-        <section class="burguer-domicilios">
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/mjxgZ2KwZyPBx2aaG-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Bulleit Queen</p>
-              <span>Pan brioche, 150 grs de carne premium, queso</span>
-              <!-- <button>Agregar</button> -->
-              <span class="precio">$33.500 COP</span>
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-local/resized2/HYWPSc3SCBsZg75wd-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Candy Crunch</p>
-              <span>Pan brioche, mayonesa de la casa.</span>
-              <span class="precio">$31.900 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/tJ4x6AYP3fmbFNTFg-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Jack Philadelphia</p>
-              <span
-                >Pan brioche, 150 grs de carne premium, queso philadelfia.
-              </span>
-              <span class="precio">$32.500 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/m9ZdtkhW7tHhmeMtQ-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Triple X</p>
-              <span
-                >Pan brioche, 100 grs de carne premium, 60 grs de bondiola de
-                cerdo.
-              </span>
-              <span class="precio">$32.900 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/4unFA9hhMqsGj6rG3-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Classic</p>
-              <span
-                >Pan brioche, 150 grs de carne premium, queso cheddar.
-              </span>
-              <span class="precio">$28.900 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/2CNhPGb63jLWp5b9x-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Hawaii</p>
-              <span>Pan brioche, 150 grs de carne premium. </span>
-              <span class="precio">$33.500 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-        </section>
-
-        <!------------------------- Bebidas-------------------------->
+        <div id="burguer" class="domicilios-productos"></div>
+        <!----Entradas---->
         <section>
-          <h1 class="burguer-domicilios__title" id="domicilios">
-            Bebidas
-          </h1>
+          <h1 class="burguer-domicilios__title">Entradas</h1>
+          <div id="entradas" class="domicilios-productos"></div>
         </section>
-        <section class="burguer-domicilios">
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/kDBaFx8G8PjwqLGdm-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p> Jugo de Piña</p>
-              <span class="precio">$8.500 COP</span>
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/NSCvvxpPDfgkseWgT-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Limonada</p>
-              <span class="precio">$7.500 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/G8c2EML7GvYQwY6sD-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Limonada de coco</p>
-              <span class="precio">$10.500 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/y33cD4ox3fbAo6vmW-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Gaseosa</p>
-              
-              <span class="precio">$5.500 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/7ywaE4FmQ7Ch2rXZ5-350-350.webp"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Cerveza</p>
-              <span class="precio">$11.500 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
-          <div class="burguer-domicilios__burguer">
-            <img
-              class="burguer-domicilios__burguer-img"
-              src="https://tofuu.getjusto.com/orioneat-prod-resized/EELNyvGRFS5oQhatZ-350-350.webp"
-              alt="burguer1"
-            />
-            <div class="burguer-domicilios__burguer-text">
-              <p>Hatsu</p>
-              <span class="precio">$8.900 COP</span>
-              <!-- <button >Agregar</button> -->
-            </div>
-          </div>
+        <!----Parrilla---->
+        <section>
+          <h1 class="burguer-domicilios__title">Parrilla</h1>
+          <div id="parrilla" class="domicilios-productos"></div>
+        </section>
+        <!----Ensaladas---->
+        <section>
+          <h1 class="burguer-domicilios__title">Ensaladas</h1>
+          <div id="ensaladas" class="domicilios-productos"></div>
+        </section>
+        <!----Bebidas---->
+        <section>
+          <h1 class="burguer-domicilios__title">Bebidas</h1>
+          <div id="bebidas" class="domicilios-productos"></div>
         </section>
       </main>
       <!------------------------- Footer --------------------------------->
@@ -238,11 +110,11 @@
         </div>
       </footer>
     </div>
-    <script src="js/wow.min.js"></script>
+    <script src="../animated/wow.min.js"></script>
     <script>
       new WOW().init();
     </script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="../javascript.js/domicilios.js"></script>
+    <script src="../javascript/productos.js"></script>
+    <script src="../javascript/domicilios.js"></script>
   </body>
 </html>
