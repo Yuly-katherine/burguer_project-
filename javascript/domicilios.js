@@ -40,28 +40,28 @@ let bebidas = listaDeProductos.filter((item) => item.categoria === "Bebida")
 let listaBurguerNombres = hamburguesas.map((item) => item.nombre)
 let listaBebidasNombres = bebidas.map((item) => item.nombre)
 
-//-------------------------EN CONSTRUCCIÓN---------------------------// 
 
-// function renderizarProducto(lista, categoria) {
-//     for (const producto of lista) {
-//         let card = document.createElement("div")
-//         card.className ="card"
-//         card.innerHTML = 
-//         `<img class="card__img" src="${producto.imagen}"/>
-//          <div class="card__descripcion">
-//             <p>${producto.nombre}</p>
-//             <span>${producto.descripcion}</span>
-//             <span class="precio">$${producto.precio}</span>
-//             <button>Agregar</button>
-//          </div>`
-//         categoria.append(card) 
-//     }
-// }
-// let getHamburguesas = document.getElementById("burguer")
-// renderizarProducto(hamburguesas, getHamburguesas)
+//------------------------PRODUCTOS EN EL HTML-------------------------------------//
 
-// let getBebidas = document.getElementById("bebidas")
-// renderizarProducto(bebidas, getBebidas)
+function renderizarProducto(lista, categoria) {
+    for (const producto of lista) {
+        let card = document.createElement("div")
+        card.className ="card"
+        card.innerHTML = `
+        <div class="card__img">
+            <img src="${producto.imagen}"></img>
+        </div>
+        <div class="card__descripcion">
+            <p>${producto.nombre}</p>
+            <span>${producto.descripcion}</span>
+            <span class="precio">$${producto.precio}</span>
+            <button>Agregar</button>
+        </div>`
+        categoria.append(card) 
+    }
+}
+let getProductos = document.getElementById("productos")
+renderizarProducto(listaDeProductos, getProductos)
 
 //---------------------------------------------------------------------------//
 

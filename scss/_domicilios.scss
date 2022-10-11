@@ -28,7 +28,7 @@
     font-size: 2rem;
   }
   
-  .burguer-domicilios{
+  .domicilios-productos {
     margin: 20px auto;
     padding: 5px;
     display: grid;
@@ -37,56 +37,69 @@
     gap: 10px;
   }
   
-  .burguer-domicilios__burguer{
+  .card{
+    position: relative;
     height: 200px;
     border-radius: 10px;
     padding: 5px;
     box-shadow: -4px 7px 17px -10px #000;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    &__img {
       
-  }
-
-  .burguer-domicilios__burguer-img{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 190px;
-    width: 190px;
-  }
-  
-  .burguer-domicilios__burguer-text{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 10px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 0.8rem;
-    p{
-      font-family: "Yeseva One", cursive;
-      font-weight: bold;
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 190px;
+        width: 190px;
+      }
     }
-    span{
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    button{
-      font-family: "Montserrat", sans-serif;
-      background-color: #4e4934;
-      color: #fff;
+    &__descripcion{
+      position: relative;
       width: 100%;
-      border: none;
-      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: normal;
+      font-size: 0.8rem;
+      p{
+        font-family: "Yeseva One", cursive;
+        font-weight: bold;
+        margin-bottom: 0.5rem; 
+      }
+      span{
+        width: 100%;
+        margin-bottom: 0.5rem; 
+      }
+      button{
+        position: absolute;
+        bottom:0;
+        font-family: "Montserrat", sans-serif;
+        background-color: #4e4934;
+        color: #fff;
+        width: 100%;
+        border: none;
+        border-radius: 10px;
+        padding: 5px;
+        &:hover{
+          background-color: darken(#4e4934, 5%)
+        }
+      }
     }
-
   }
+
   .precio{
     font-family: "Yeseva One", cursive;
     font-weight: bold;
     font-size: 1rem;
   
   }
+
   
   /* --------media querys DOMICILIOS--------*/
   
