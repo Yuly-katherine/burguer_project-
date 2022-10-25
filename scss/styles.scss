@@ -10,7 +10,6 @@
 
 @import"carta";
 @import"domicilios";
-@import"nosotros";
 @import"sedes";
 @import"trabajaConNosotros";
 
@@ -198,40 +197,35 @@ a:hover {
 .burguer-social-media {
   background-image: url("../img/footer.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 200px;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  &__type{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    span{
+      color: #000;
+      font-family: "Yeseva One", cursive;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    img{
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+      margin-bottom: 10px;
+      &:hover{
+        transform: scale(1.2);
+      }
+    }
+  }
 }
 
-.burguer-social-media__type {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.burguer-social-media__type span {
-  color: #000;
-  font-family: "Yeseva One", cursive;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.burguer-social-media__type img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s ease;
-  margin-bottom: 10px;
-}
-
-.burguer-social-media__type img:hover {
-  transform: scale(1.2);
-}
 
 /* --------media querys --------*/
 

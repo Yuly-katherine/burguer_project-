@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* --------Reseteo--------*/
 * {
   margin: 0;
@@ -65,8 +66,8 @@
     color: #000; }
 
 /* ------------------------VISTA DOMICILIOS-------------------*/
-/* -----content ------*/
-.burguer-domicilios__img1 {
+/* -----Imagen inicial ------*/
+.burguer-content__img {
   background-image: url("https://tofuu.getjusto.com/orioneat-prod-resized/2SYnoZD5AKCFk9uke-x-2000.webp");
   background-size: cover;
   background-repeat: no-repeat;
@@ -74,108 +75,188 @@
   height: 550px;
   width: 100%; }
 
-.burguer-domicilios__title {
-  background-color: #fff;
-  font-family: "Yeseva One", cursive;
-  text-align: center;
-  padding: 30px 0;
-  font-size: 2rem; }
-
-.burguer-domicilios__comprar {
-  width: 100%;
+/* -----Titulo ó Encabezado ------*/
+.burguer-domicilios {
   padding-top: 50px;
   display: flex;
-  justify-content: center; }
+  width: 100%; }
+  .burguer-domicilios__titulo {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center; }
+    .burguer-domicilios__titulo span {
+      font-family: "Yeseva One", cursive;
+      font-size: 2rem; }
+    .burguer-domicilios__titulo img {
+      margin-left: 10px;
+      width: 30px;
+      height: 30px; }
+  .burguer-domicilios__carrito {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-right: 10px; }
 
-.burguer-domicilios__filter {
-  width: 100%;
-  display: flex;
-  justify-content: end; }
+.carrito-compras {
+  align-self: end;
+  margin-left: 20px; }
+  .carrito-compras img {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    width: 50px;
+    height: 50px; }
 
-.button-comprar {
-  font-family: "Yeseva One", cursive;
-  font-size: 2rem;
-  text-decoration: none;
-  color: #000;
-  padding: 20px 40px;
-  border: 4px solid #000;
-  border-radius: 15px; }
-  .button-comprar:hover {
-    background-color: #ffce12;
-    font-size: 2.8rem;
-    color: #000; }
-
+/* ----- Estilos select Boostrap ------*/
 .form-select {
-  width: auto;
-  margin-right: 1rem;
+  align-self: end;
+  width: 30%;
   font-family: "Montserrat", sans-serif; }
+  @media (max-width: 1250px) {
+    .form-select {
+      width: 50%; } }
+  @media (max-width: 900px) {
+    .form-select {
+      width: 60%; } }
 
 .form-select:focus {
   border-color: #ffce12;
   box-shadow: none; }
 
+/* -----cards de los productos ------*/
 .domicilios-productos {
   margin: 20px auto;
   padding: 5px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 200px);
-  gap: 10px; }
+  gap: 40px 10px; }
 
 .card {
-  position: relative;
   height: 200px;
   border-radius: 10px;
   padding: 5px;
   box-shadow: -4px 7px 17px -10px #000;
   display: grid;
   grid-template-columns: repeat(2, 48%); }
-  .card__img img {
+  @media (max-width: 430px) {
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; } }
+  .card__img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 190px;
-    width: 190px;
-    width: auto; }
-  .card__descripcion {
-    position: relative;
+    width: auto;
+    margin: 0 auto; }
+    @media (max-width: 430px) {
+      .card__img {
+        display: none; } }
+  .card__info {
     width: 100%;
+    margin-left: 10px;
+    margin-bottom: 5px;
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: normal;
-    font-size: 0.8rem; }
-    .card__descripcion p {
-      font-family: "Yeseva One", cursive;
-      font-weight: bold;
-      margin-bottom: 0.5rem; }
-    .card__descripcion span {
-      width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 0.5rem; }
-    .card__descripcion button {
-      position: absolute;
-      bottom: 0;
-      font-family: "Montserrat", sans-serif;
-      background-color: #4e4934;
-      color: #fff;
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      padding: 5px; }
-      .card__descripcion button:hover {
-        background-color: #3f3b2a; }
+    justify-content: space-between; }
+    @media (max-width: 430px) {
+      .card__info {
+        width: 95%; } }
 
-.precio {
+.card-titulo {
+  font-family: "Yeseva One", cursive;
+  font-weight: bold; }
+
+.card-descripcion {
+  width: 100%;
+  height: 75px;
+  font-size: 12px;
+  overflow: hidden; }
+
+.card-precio {
   font-family: "Yeseva One", cursive;
   font-weight: bold;
-  font-size: 1rem; }
+  font-size: 16px; }
+
+.card-btn {
+  font-family: "Montserrat", sans-serif;
+  background-color: black;
+  color: #fff;
+  font-weight: bold;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 2px; }
+  .card-btn:hover {
+    background-color: #ffce12;
+    color: #000; }
+
+/* --------Modal Producto Seleccionado--------*/
+.modal-producto {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s;
+  opacity: 0;
+  visibility: hidden; }
+
+.modal-active {
+  opacity: 1;
+  visibility: visible; }
+
+.contenedor-modal {
+  position: relative;
+  background-color: white;
+  max-width: 90%;
+  padding: 10px;
+  margin-top: -100%;
+  transition: all .5s; }
+
+.modal-active .contenedor-modal {
+  margin-top: 0; }
+
+.contenedor-modal h3 {
+  color: royalblue;
+  padding-bottom: 5px; }
+
+.boton-cerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  outline: none;
+  color: #fff;
+  border: none;
+  background-color: #0005;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px; }
+  .boton-cerrar:hover {
+    cursor: pointer;
+    background-color: #0006; }
+
+/* --------Modal producto header--------*/
+.modal-header {
+  display: flex; }
+  .modal-header__img {
+    width: auto;
+    height: 130px; }
+  .modal-header__descripcion {
+    margin-left: 10px; }
+    .modal-header__descripcion h5 {
+      padding-top: 10px; }
 
 /* --------media querys DOMICILIOS--------*/
 @media screen and (max-width: 1250px) {
-  /* -----content ------*/
+  /* -----contenido ------*/
   .domicilios-productos {
     grid-template-columns: repeat(2, 1fr); } }
 
@@ -514,35 +595,29 @@ a:hover {
 .burguer-social-media {
   background-image: url("../img/footer.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 200px;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center; }
-
-.burguer-social-media__type {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer; }
-
-.burguer-social-media__type span {
-  color: #000;
-  font-family: "Yeseva One", cursive;
-  font-weight: bold;
-  font-size: 1.5rem; }
-
-.burguer-social-media__type img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s ease;
-  margin-bottom: 10px; }
-
-.burguer-social-media__type img:hover {
-  transform: scale(1.2); }
+  .burguer-social-media__type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; }
+    .burguer-social-media__type span {
+      color: #000;
+      font-family: "Yeseva One", cursive;
+      font-weight: bold;
+      font-size: 1.5rem; }
+    .burguer-social-media__type img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+      margin-bottom: 10px; }
+      .burguer-social-media__type img:hover {
+        transform: scale(1.2); }
 
 /* --------media querys --------*/
 @media screen and (max-width: 900px) {
