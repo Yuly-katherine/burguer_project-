@@ -1,8 +1,8 @@
 /* ------------------------VISTA DOMICILIOS-------------------*/
 /* -----Imagen inicial ------*/
 
-.burguer-content{
-  &__img{
+.burguer-content {
+  &__img {
     background-image: url("https://tofuu.getjusto.com/orioneat-prod-resized/2SYnoZD5AKCFk9uke-x-2000.webp");
     background-size: cover;
     background-repeat: no-repeat;
@@ -23,11 +23,11 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    span{
+    span {
       font-family: "Yeseva One", cursive;
       font-size: 2rem;
     }
-    img{
+    img {
       margin-left: 10px;
       width: 30px;
       height: 30px;
@@ -41,26 +41,26 @@
     padding-right: 10px;
   }
 }
-.carrito-compras{
+.carrito-compras {
   align-self: end;
   margin-left: 20px;
-   img{
+  img {
     margin-right: 10px;
     margin-bottom: 5px;
-    width:50px;
+    width: 50px;
     height: 50px;
-   }
+  }
 }
 /* ----- Estilos select Boostrap ------*/
 
 .form-select {
-  align-self:end;
+  align-self: end;
   width: 30%;
   font-family: "Montserrat", sans-serif;
-  @media(max-width:1250px){
+  @media (max-width: 1250px) {
     width: 50%;
   }
-  @media(max-width:900px){
+  @media (max-width: 900px) {
     width: 60%;
   }
 }
@@ -78,7 +78,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 200px);
-  gap:  40px 10px;
+  gap: 40px 10px;
 }
 
 .card {
@@ -88,8 +88,8 @@
   box-shadow: -4px 7px 17px -10px #000;
   display: grid;
   grid-template-columns: repeat(2, 48%);
-  @media (max-width:430px){
-    display:flex;
+  @media (max-width: 430px) {
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
@@ -100,23 +100,23 @@
     height: 190px;
     width: auto;
     margin: 0 auto;
-    @media (max-width:430px){
-      display:none;
+    @media (max-width: 430px) {
+      display: none;
     }
   }
   &__info {
     width: 100%;
     margin-left: 10px;
     margin-bottom: 5px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    @media (max-width:430px){
-      width:95%;
+    @media (max-width: 430px) {
+      width: 95%;
     }
   }
 }
-.card-titulo{
+.card-titulo {
   font-family: "Yeseva One", cursive;
   font-weight: bold;
 }
@@ -133,7 +133,7 @@
   font-size: 16px;
 }
 
-.card-btn{
+.card-btn {
   font-family: "Montserrat", sans-serif;
   background-color: black;
   color: #fff;
@@ -142,9 +142,9 @@
   border: none;
   border-radius: 10px;
   padding: 2px;
-  &:hover{
-    background-color: #ffce12;
-    color:#000;
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateY(-0.1rem);
   }
 }
 
@@ -159,7 +159,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .5s;
+  transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
 }
@@ -172,21 +172,24 @@
 .contenedor-modal {
   position: relative;
   background-color: white;
-  max-width: 90%;
+  border-radius: 10px;
+  max-width: 50%;
   padding: 10px;
   margin-top: -100%;
-  transition: all .5s;
+  transition: all 0.5s;
+  @media(max-width: 1200px){
+    max-width: 80%;
+  }
+  @media(max-width: 800px){
+    max-width: 95%;
+  }
 }
 
 .modal-active .contenedor-modal {
   margin-top: 0;
 }
 
-.contenedor-modal h3 {
-  color: royalblue;
-  padding-bottom: 5px;
-}
-.boton-cerrar{
+.boton-cerrar {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -198,34 +201,96 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  &:hover{
+  &:hover {
     cursor: pointer;
-    background-color:#0006
+    background-color: #0006;
   }
 }
 
 /* --------Modal producto header--------*/
 
-.modal-header{
-  display:flex;
-  &__img{
-    width:auto;
-    height: 130px;
+.modal-header {
+  display: flex;
+  &__img {
+    width: auto;
+    height: 100px;
+    @media(max-width: 430px){
+      display: none;
+    }
   }
-  &__descripcion{
+  &__descripcion {
     margin-left: 10px;
-    h5{
-      padding-top:10px;
+    h3 {
+      padding-top: 10px;
+      font-weight: bold;
+      font-family: "Yeseva One", cursive;
+    }
+  }
+}
+/* --------Modal producto opciones--------*/
+
+.modal-opciones {
+  padding-left: 5px;
+  padding-right: 10px;
+  overflow-y: auto;
+  height: 230px;
+  &__titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h6 {
+      color: #777;
+    }
+  }
+  &__opciones {
+    display: flex;
+    flex-direction: column;
+    label {
+      margin: 5px 0;
+    }
+  }
+}
+/* --------Modal producto footer--------*/
+
+.modal-footer {
+  height: 50px;
+  box-shadow: 0px -8px 5px -7px rgba(0, 0, 0, 0.1);
+  &__opciones {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      width: 45px;
+      outline: none;
+      margin-right: 10px;
+    }
+    button {
+      font-family: "Montserrat", sans-serif;
+      background-color: black;
+      color: #fff;
+      font-weight: bold;
+      width: 30%;
+      border: none;
+      border-radius: 10px;
+      padding: 2px;
+      transition: transform 0.2s;
+      &:hover {
+        transform: translateY(-0.1rem);
+      }
+    }
+    span {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: "Yeseva One", cursive;
+      margin-left: 20px;
     }
   }
 }
 
-
-
 /* --------media querys DOMICILIOS--------*/
 
 @media screen and (max-width: 1250px) {
-
   /* -----contenido ------*/
 
   .domicilios-productos {
@@ -238,3 +303,18 @@
   }
 }
 
+/* --------estilos scrollbar --------*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
