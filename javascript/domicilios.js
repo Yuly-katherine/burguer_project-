@@ -1,12 +1,34 @@
+//-------------VARIABLES----------//
+
+let carritoCompras = []
+let totalAPagar = 0
+let totalCarrito = document.getElementById('total-carrito-compras')
+totalCarrito.innerText =`$${totalAPagar}` 
+
+//-Modal producto-//
+let modalProducto = document.getElementById('modal-producto')
+let contenedorModalProducto = document.getElementById('contenedor-modal-producto')
+let botonCerrar = document.getElementById('modal-producto-cerrar')
+
+carritoFromStorage() 
+
+function carritoFromStorage() {
+    if (localStorage.getItem('carrito') !== null){
+        carritoCompras = JSON.parse(localStorage.getItem('carrito'))
+        agregarAlCarrito()
+
+    }
+}
+
 
 //-------------FILTRAR PRODUCTOS----------//
 
 let botonFiltrar = document.getElementById('filtrarProductos')
-botonFiltrar.addEventListener('change', () => {filtrarProductos(botonFiltrar.value)})
+botonFiltrar.addEventListener('change', () => { filtrarProductos(botonFiltrar.value) })
 let titulo = document.getElementById('titulo')
 titulo.innerText = 'Productos'
 
-function filtrarProductos(producto){
+function filtrarProductos(producto) {
     productoSeleccionado = productos.filter((el) => el.categoria === producto)
     if (productoSeleccionado.length) {
         titulo.innerText = producto
@@ -28,34 +50,42 @@ function renderizarProductos(lista) {
     for (const producto of lista) {
         // Card
         let card = document.createElement('div')
-        card.className ='card'
+        card.className = 'card'
         // Imagen
         let cardImg = document.createElement('img')
-        cardImg.className ='card__img'
+        cardImg.className = 'card__img'
         cardImg.setAttribute('src', producto.imagen)
         cardImg.setAttribute('alt', producto.nombre)
         // Informacion
         let cardInfo = document.createElement('div')
-        cardInfo.className ='card__info'
+        cardInfo.className = 'card__info'
         //Informacion titulo
         let cardTitulo = document.createElement('h5')
-        cardTitulo.className ='card-titulo' 
+        cardTitulo.className = 'card-titulo'
         cardTitulo.innerHTML = producto.nombre
         //Informacion descripcion
         let cardDescripcion = document.createElement('div')
-        cardDescripcion.className ='card-descripcion' 
+        cardDescripcion.className = 'card-descripcion'
         cardDescripcion.innerHTML = producto.descripcion
         //Informacion precio
         let cardPrecio = document.createElement('div')
-        cardPrecio.className ='card-precio' 
-        cardPrecio.innerHTML = `$${producto.precio}` 
+        cardPrecio.className = 'card-precio'
+        cardPrecio.innerHTML = `$${producto.precio}`
         // boton
         let cardBtn = document.createElement('button')
-        cardBtn.className ='card-btn' 
+        cardBtn.className = 'card-btn'
         cardBtn.innerHTML = 'Agregar'
         cardBtn.setAttribute('id', 'boton-carrito')
-        cardBtn.addEventListener('click', ()=>{ modalProducto.classList.add('modal-active')} )
-        cardBtn.addEventListener('click', ()=>{ModalProductoSeleccionado(producto)})
+        cardBtn.addEventListener('click', () => {
+            if (producto.categoria === "Hamburguesas" || 
+                producto.categoria === "Parrilla") {
+                modalProducto.classList.add('modal-active')
+                ModalProductoSeleccionado(producto)
+            } else {
+                carritoCompras.push(producto)
+                agregarAlCarrito()
+            }
+        })
 
         cardInfo.append(cardTitulo)
         cardInfo.append(cardDescripcion)
@@ -64,47 +94,32 @@ function renderizarProductos(lista) {
         card.append(cardImg)
         card.append(cardInfo)
 
-        listaProductos.append(card)       
+        listaProductos.append(card)
     }
 }
 
 //-------------MODAL PRODUCTO SELECCIONADO ----------//
 
 
-let modalProducto = document.getElementById('modal-producto')
-let contenedorModalProducto = document.getElementById('contenedor-modal-producto')
-let botonCerrar = document.getElementById('modal-producto-cerrar')
-
-botonCerrar.addEventListener('click', ()=>{
+botonCerrar.addEventListener('click', () => {
     modalProducto.classList.remove('modal-active')
 })
 
+ //sólo se ejecuta en donde se hace click y no en los elementos del padre
 contenedorModalProducto.addEventListener('click', (event) => {
-    event.stopPropagation() 
-    //sólo se ejecuta en donde se hace click y no en los elementos del padre
+    event.stopPropagation()
 })
 
-let totalPorProducto = 0
-function totalProducto(cantidad, producto) {
- totalPorProducto = cantidad * producto.precio
- console.log(totalPorProducto)
- ModalProductoSeleccionado(producto)
-}
+function ModalProductoSeleccionado(producto) {
 
-function mostrarValores(){
-    let acompañante = document.querySelector('input[name="acompañante"]:checked').value;
-   console.log(acompañante)
-}
+    let totalPorProducto = producto.precio
 
-function ModalProductoSeleccionado(producto){
-    console.log(producto)
-    
     let bodyModal = document.getElementById('body-modal-producto')
     bodyModal.innerHTML = ''
 
     // modal header
     let header = document.createElement('div')
-    header.className ='modal-header'
+    header.className = 'modal-header'
     header.innerHTML = `
     <img class='modal-header__img' src='${producto.imagen}' alt='${producto.nombre}'/>
     <div class='modal-header__descripcion'>
@@ -114,7 +129,7 @@ function ModalProductoSeleccionado(producto){
 
     // modal opciones
     let opciones = document.createElement('div')
-    opciones.className ='modal-opciones'
+    opciones.className = 'modal-opciones'
     opciones.innerHTML = `
     <hr>
     <div class='modal-opciones__titulo'>
@@ -159,27 +174,66 @@ function ModalProductoSeleccionado(producto){
         </label>
         <label for='bbq'>
             <input type='radio' name='salsa' value='Bbq Jack Daniels' id='salsa'>
-            Mayonesa pimenton
+            Bbq Jack Daniels
         </label>
     </div>
     `
     // modal footer
     let footer = document.createElement('div')
-    footer.className ='modal-footer'
+    footer.className = 'modal-footer'
     footer.innerHTML = `
+    <span id="validacion" class='modal-footer__validacion'>
+    </span>
     <div class='modal-footer__opciones'>
-        <input type='number' name='cantidad' min="1" pattern="^[0-9]+" inputmode="numeric" id="cantidad">
+        <input type='number' name='cantidad' min="1" pattern="^[0-9]+" inputmode="numeric" id="cantidad" value=1>
         <button id='agregar-seleccionado'>Agregar</button>
-        <span>$${totalPorProducto}</span>
+        <span id='total-producto'>$${totalPorProducto}</span>
     </div>
     `
     bodyModal.append(header)
     bodyModal.append(opciones)
     bodyModal.append(footer)
 
-    let cantidad = document.getElementById('cantidad')
-    cantidad.addEventListener('change', () => {totalProducto(cantidad.value, producto)})
-    let seleccionado = document.getElementById('agregar-seleccionado')
-    seleccionado.addEventListener('click', mostrarValores)
 
+    // calcular total por producto 
+    document.getElementById('cantidad').addEventListener('change', () => {
+        totalPorProducto = cantidad.value * producto.precio
+        document.getElementById('total-producto').innerText = `$${totalPorProducto}`
+    })
+
+    // agragar al carrito
+    
+    document.getElementById('agregar-seleccionado').addEventListener('click', () => { 
+
+        let acompañante = document.querySelector('input[name="acompañante"]:checked')
+        let salsa = document.querySelector('input[name="salsa"]:checked')
+        if (acompañante && salsa){
+            let productoEscogido = {...producto}
+            productoEscogido.acompañante = acompañante.value
+            productoEscogido.salsa = salsa.value
+            productoEscogido.precio = totalPorProducto
+            carritoCompras.push(productoEscogido)
+            modalProducto.classList.remove('modal-active')
+            agregarAlCarrito()
+        } else {
+            document.getElementById('validacion').innerText = "Por favor completa los datos*"
+        }
+    }) 
+}
+
+
+//-------------MODAL CARRITO ----------//
+
+
+function agregarAlCarrito() {
+    for(let i=0; i<carritoCompras.length; i++) { 
+        totalAPagar +=  carritoCompras[i].precio
+    }
+    totalCarrito.innerText =`$${totalAPagar}` 
+    saveCarritoToStorage()
+
+}
+
+function saveCarritoToStorage() {
+    localStorage.setItem('carrito', JSON.stringify(carritoCompras))
 }

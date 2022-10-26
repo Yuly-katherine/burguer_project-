@@ -282,8 +282,16 @@
 
 /* --------Modal producto footer--------*/
 .modal-footer {
-  height: 50px;
+  height: 55px;
   box-shadow: 0px -8px 5px -7px rgba(0, 0, 0, 0.1); }
+  .modal-footer__validacion {
+    width: 100%;
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: start;
+    margin-bottom: 5px;
+    padding-left: 5px; }
   .modal-footer__opciones {
     width: 100%;
     display: flex;
