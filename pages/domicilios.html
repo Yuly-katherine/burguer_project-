@@ -60,7 +60,9 @@
           <div class="burguer-domicilios__carrito">
             <div class="carrito-compras">
               <span id="total-carrito-compras">$</span>
-              <img src="../img/carrito.png" alt="carrito" />
+              <button class="carrito-compras__button" id="cart-btn">
+                <img src="../img/carrito.png" alt="carrito" />
+              </button>
             </div>
             <select
               class="form-select"
@@ -80,7 +82,7 @@
           </div>
         </section>
 
-        <!-------Productos ------->
+        <!------- Cards Productos ------->
 
         <section>
           <div id="productos" class="domicilios-productos"></div>
@@ -97,6 +99,19 @@
             </div>
           </div>
         </section>
+
+        <!-------Sidebar carrito de compras ------->
+
+        <section>
+          <div id="sidebar-carrito" class="sidebar-carrito">
+            <div id="contenedor-sidebar" class="contenedor-sidebar">
+              <button class="boton-cerrar" id="sidebar-cerrar">X</button>
+              <div id="body-sidebar" class="body-sidebar"> 
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
 
       <!-------Footer ------->

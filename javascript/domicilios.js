@@ -1,187 +1,196 @@
 //-------------VARIABLES----------//
 
-let carritoCompras = []
-let totalAPagar = 0
-let totalCarrito = document.getElementById('total-carrito-compras')
-totalCarrito.innerText =`$${totalAPagar}` 
+let carritoCompras = [];
+let totalAPagar = 0;
+let totalCarrito = document.getElementById("total-carrito-compras");
+totalCarrito.innerText = `$${totalAPagar}`;
 
 //-Modal producto-//
-let modalProducto = document.getElementById('modal-producto')
-let contenedorModalProducto = document.getElementById('contenedor-modal-producto')
-let botonCerrar = document.getElementById('modal-producto-cerrar')
+let modalProducto = document.getElementById("modal-producto");
+let contenedorModalProducto = document.getElementById(
+  "contenedor-modal-producto"
+);
+let cerrarModal = document.getElementById("modal-producto-cerrar");
 
-carritoFromStorage() 
+//-Sidebar carrito de compras-//
+let SidebarCarritoBtn = document.getElementById("cart-btn");
+let sidebarCarrito = document.getElementById("sidebar-carrito");
+let contenedorSidebarCarrito = document.getElementById("contenedor-sidebar");
+let cerrarSidebar = document.getElementById("sidebar-cerrar");
+
+//-------------MOSTRAR DATOS DESDE LOCALSTORAGE----------//
+
+carritoFromStorage();
 
 function carritoFromStorage() {
-    if (localStorage.getItem('carrito') !== null){
-        carritoCompras = JSON.parse(localStorage.getItem('carrito'))
-        agregarAlCarrito()
-
-    }
+  if (localStorage.getItem("carrito") !== null) {
+    carritoCompras = JSON.parse(localStorage.getItem("carrito"));
+    calcularTotalCarrito();
+  }
 }
-
 
 //-------------FILTRAR PRODUCTOS----------//
 
-let botonFiltrar = document.getElementById('filtrarProductos')
-botonFiltrar.addEventListener('change', () => { filtrarProductos(botonFiltrar.value) })
-let titulo = document.getElementById('titulo')
-titulo.innerText = 'Productos'
+let botonFiltrar = document.getElementById("filtrarProductos");
+botonFiltrar.addEventListener("change", () => {
+  filtrarProductos(botonFiltrar.value);
+});
+let titulo = document.getElementById("titulo");
+titulo.innerText = "Productos";
 
 function filtrarProductos(producto) {
-    productoSeleccionado = productos.filter((el) => el.categoria === producto)
-    if (productoSeleccionado.length) {
-        titulo.innerText = producto
-        renderizarProductos(productoSeleccionado)
-    } else {
-        titulo.innerText = 'Productos'
-        renderizarProductos(productos)
-    }
+  productoSeleccionado = productos.filter((el) => el.categoria === producto);
+  if (productoSeleccionado.length) {
+    titulo.innerText = producto;
+    renderizarProductos(productoSeleccionado);
+  } else {
+    titulo.innerText = "Productos";
+    renderizarProductos(productos);
+  }
 }
 
 //-------------PRODUCTOS EN EL HTML----------//
 
-renderizarProductos(productos)
+renderizarProductos(productos);
 
 function renderizarProductos(lista) {
-    let listaProductos = document.getElementById('productos')
-    listaProductos.innerHTML = ''
+  let listaProductos = document.getElementById("productos");
+  listaProductos.innerHTML = "";
 
-    for (const producto of lista) {
-        // Card
-        let card = document.createElement('div')
-        card.className = 'card'
-        // Imagen
-        let cardImg = document.createElement('img')
-        cardImg.className = 'card__img'
-        cardImg.setAttribute('src', producto.imagen)
-        cardImg.setAttribute('alt', producto.nombre)
-        // Informacion
-        let cardInfo = document.createElement('div')
-        cardInfo.className = 'card__info'
-        //Informacion titulo
-        let cardTitulo = document.createElement('h5')
-        cardTitulo.className = 'card-titulo'
-        cardTitulo.innerHTML = producto.nombre
-        //Informacion descripcion
-        let cardDescripcion = document.createElement('div')
-        cardDescripcion.className = 'card-descripcion'
-        cardDescripcion.innerHTML = producto.descripcion
-        //Informacion precio
-        let cardPrecio = document.createElement('div')
-        cardPrecio.className = 'card-precio'
-        cardPrecio.innerHTML = `$${producto.precio}`
-        // boton
-        let cardBtn = document.createElement('button')
-        cardBtn.className = 'card-btn'
-        cardBtn.innerHTML = 'Agregar'
-        cardBtn.setAttribute('id', 'boton-carrito')
-        cardBtn.addEventListener('click', () => {
-            if (producto.categoria === "Hamburguesas" || 
-                producto.categoria === "Parrilla") {
-                modalProducto.classList.add('modal-active')
-                ModalProductoSeleccionado(producto)
-            } else {
-                carritoCompras.push(producto)
-                agregarAlCarrito()
-            }
-        })
+  for (const producto of lista) {
+    // Card
+    let card = document.createElement("div");
+    card.className = "card";
+    // Imagen
+    let cardImg = document.createElement("img");
+    cardImg.className = "card__img";
+    cardImg.setAttribute("src", producto.imagen);
+    cardImg.setAttribute("alt", producto.nombre);
+    // Informacion
+    let cardInfo = document.createElement("div");
+    cardInfo.className = "card__info";
+    //Informacion titulo
+    let cardTitulo = document.createElement("h5");
+    cardTitulo.className = "card-titulo";
+    cardTitulo.innerHTML = producto.nombre;
+    //Informacion descripcion
+    let cardDescripcion = document.createElement("div");
+    cardDescripcion.className = "card-descripcion";
+    cardDescripcion.innerHTML = producto.descripcion;
+    //Informacion precio
+    let cardPrecio = document.createElement("div");
+    cardPrecio.className = "card-precio";
+    cardPrecio.innerHTML = `$${producto.precio}`;
+    // boton
+    let cardBtn = document.createElement("button");
+    cardBtn.className = "card-btn";
+    cardBtn.innerHTML = "Agregar";
+    cardBtn.addEventListener("click", () => {
+      modalProducto.classList.add("modal-active");
+      ModalProductoSeleccionado(producto);
+    });
 
-        cardInfo.append(cardTitulo)
-        cardInfo.append(cardDescripcion)
-        cardInfo.append(cardPrecio)
-        cardInfo.append(cardBtn)
-        card.append(cardImg)
-        card.append(cardInfo)
+    cardInfo.append(cardTitulo);
+    cardInfo.append(cardDescripcion);
+    cardInfo.append(cardPrecio);
+    cardInfo.append(cardBtn);
+    card.append(cardImg);
+    card.append(cardInfo);
 
-        listaProductos.append(card)
-    }
+    listaProductos.append(card);
+  }
 }
 
 //-------------MODAL PRODUCTO SELECCIONADO ----------//
 
+cerrarModal.addEventListener("click", () => {
+  modalProducto.classList.remove("modal-active");
+});
 
-botonCerrar.addEventListener('click', () => {
-    modalProducto.classList.remove('modal-active')
-})
+//sólo se ejecuta en donde se hace click y no en los elementos del padre
+contenedorModalProducto.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
 
- //sólo se ejecuta en donde se hace click y no en los elementos del padre
-contenedorModalProducto.addEventListener('click', (event) => {
-    event.stopPropagation()
-})
 
 function ModalProductoSeleccionado(producto) {
+  let totalPorProducto = producto.precio;
 
-    let totalPorProducto = producto.precio
+  let bodyModal = document.getElementById("body-modal-producto");
+  bodyModal.innerHTML = "";
 
-    let bodyModal = document.getElementById('body-modal-producto')
-    bodyModal.innerHTML = ''
-
-    // modal header
-    let header = document.createElement('div')
-    header.className = 'modal-header'
-    header.innerHTML = `
+  // modal header
+  let header = document.createElement("div");
+  header.className = "modal-header";
+  header.innerHTML = `
     <img class='modal-header__img' src='${producto.imagen}' alt='${producto.nombre}'/>
     <div class='modal-header__descripcion'>
         <h3>${producto.nombre}</h3>
         <p>${producto.descripcion}</p>
-    </div>`
+    </div>`;
 
-    // modal opciones
-    let opciones = document.createElement('div')
-    opciones.className = 'modal-opciones'
+  bodyModal.append(header);
+
+  // modal opciones
+  if (esHamburguesaOrParrilla(producto)) {
+
+    let opciones = document.createElement("div");
+    opciones.className = "modal-opciones";
     opciones.innerHTML = `
-    <hr>
-    <div class='modal-opciones__titulo'>
-        <h5>Elige tu acompañante</h5>
-        <h6> Obligatorio </h6>
-    </div>
-    <div class='modal-opciones__opciones'>
-        <label for='francesas'>
-            <input type='radio' name='acompañante' value='Papas francesas' id='acompañante'>
-            Papas francesas
-        </label>
-        <label for='cascos'>
-            <input type='radio' name='acompañante' value='Papas cascos' id='acompañante'>
-            Papas cascos
-        </label>
-        <label for='ensalada'>
-            <input type='radio' name='acompañante' value='Ensalada' id='acompañante'>
-            Ensalada
-        </label>
-    </div>
-    <hr>
-    <div class='modal-opciones__titulo'>
-        <h5>Elige tu salsa</h5>
-        <h6> Obligatorio </h6>
-    </div>
-    <div class='modal-opciones__opciones'>
-        <label for='ajo'>
-            <input type='radio' name='salsa' value='Mayonesa de ajo' id='salsa'>
-            Mayonesa de ajo
-        </label>
-        <label for='chipotle'>
-            <input type='radio' name='salsa' value='Mayonesa de chipotle' id='salsa'>
-            Mayonesa de chipotle
-        </label>
-        <label for='albahaca'>
-            <input type='radio' name='salsa' value='Mayonesa de albahaca' id='salsa'>
-            Mayonesa de albahaca
-        </label>
-        <label for='pimenton'>
-            <input type='radio' name='salsa' value='Mayonesa pimenton' id='salsa'>
-            Mayonesa pimenton
-        </label>
-        <label for='bbq'>
-            <input type='radio' name='salsa' value='Bbq Jack Daniels' id='salsa'>
-            Bbq Jack Daniels
-        </label>
-    </div>
-    `
-    // modal footer
-    let footer = document.createElement('div')
-    footer.className = 'modal-footer'
-    footer.innerHTML = `
+        <hr>
+        <div class='modal-opciones__titulo'>
+            <h5>Elige tu acompañante</h5>
+            <h6> Obligatorio </h6>
+        </div>
+        <div class='modal-opciones__opciones'>
+            <label for='francesas'>
+                <input type='radio' name='acompanante' value='Papas francesas' id='acompanante'>
+                Papas francesas
+            </label>
+            <label for='cascos'>
+                <input type='radio' name='acompanante' value='Papas cascos' id='acompanante'>
+                Papas cascos
+            </label>
+            <label for='ensalada'>
+                <input type='radio' name='acompanante' value='Ensalada' id='acompanante'>
+                Ensalada
+            </label>
+        </div>
+        <hr>
+        <div class='modal-opciones__titulo'>
+            <h5>Elige tu salsa</h5>
+            <h6> Obligatorio </h6>
+        </div>
+        <div class='modal-opciones__opciones'>
+            <label for='ajo'>
+                <input type='radio' name='salsa' value='Mayonesa de ajo' id='salsa'>
+                Mayonesa de ajo
+            </label>
+            <label for='chipotle'>
+                <input type='radio' name='salsa' value='Mayonesa de chipotle' id='salsa'>
+                Mayonesa de chipotle
+            </label>
+            <label for='albahaca'>
+                <input type='radio' name='salsa' value='Mayonesa de albahaca' id='salsa'>
+                Mayonesa de albahaca
+            </label>
+            <label for='pimenton'>
+                <input type='radio' name='salsa' value='Mayonesa pimenton' id='salsa'>
+                Mayonesa pimenton
+            </label>
+            <label for='bbq'>
+                <input type='radio' name='salsa' value='Bbq Jack Daniels' id='salsa'>
+                Bbq Jack Daniels
+            </label>
+        </div>
+        `;
+    bodyModal.append(opciones);
+  }
+
+  // modal footer
+  let footer = document.createElement("div");
+  footer.className = "modal-footer";
+  footer.innerHTML = `
     <span id="validacion" class='modal-footer__validacion'>
     </span>
     <div class='modal-footer__opciones'>
@@ -189,51 +198,191 @@ function ModalProductoSeleccionado(producto) {
         <button id='agregar-seleccionado'>Agregar</button>
         <span id='total-producto'>$${totalPorProducto}</span>
     </div>
-    `
-    bodyModal.append(header)
-    bodyModal.append(opciones)
-    bodyModal.append(footer)
+    `;
+  bodyModal.append(footer);
 
+  // calcular total por producto
+  document.getElementById("cantidad").addEventListener("change", () => {
+    totalPorProducto = cantidad.value * producto.precio;
+    document.getElementById(
+      "total-producto"
+    ).innerText = `$${totalPorProducto}`;
+  });
 
-    // calcular total por producto 
-    document.getElementById('cantidad').addEventListener('change', () => {
-        totalPorProducto = cantidad.value * producto.precio
-        document.getElementById('total-producto').innerText = `$${totalPorProducto}`
-    })
+  // agragar al carrito
+  let productoEscogido = { ...producto };
+  document.getElementById("agregar-seleccionado").addEventListener("click", () => {
 
-    // agragar al carrito
-    
-    document.getElementById('agregar-seleccionado').addEventListener('click', () => { 
+      if (esHamburguesaOrParrilla(producto)) {
 
-        let acompañante = document.querySelector('input[name="acompañante"]:checked')
-        let salsa = document.querySelector('input[name="salsa"]:checked')
-        if (acompañante && salsa){
-            let productoEscogido = {...producto}
-            productoEscogido.acompañante = acompañante.value
-            productoEscogido.salsa = salsa.value
-            productoEscogido.precio = totalPorProducto
-            carritoCompras.push(productoEscogido)
-            modalProducto.classList.remove('modal-active')
-            agregarAlCarrito()
+        let acompanante = document.querySelector('input[name="acompanante"]:checked');
+        let salsa = document.querySelector('input[name="salsa"]:checked');
+        if (acompanante && salsa) {
+          productoEscogido.acompanante = acompanante.value;
+          productoEscogido.salsa = salsa.value;
+          productoEscogido.cantidad = totalPorProducto / producto.precio;
+          carritoCompras.push(productoEscogido);
+          modalProducto.classList.remove("modal-active");
+          calcularTotalCarrito();
         } else {
-            document.getElementById('validacion').innerText = "Por favor completa los datos*"
+          document.getElementById("validacion").innerText =
+            "Por favor completa los datos*";
         }
-    }) 
+      } else {
+          productoEscogido.cantidad = totalPorProducto / producto.precio;
+          carritoCompras.push(productoEscogido);
+          modalProducto.classList.remove("modal-active");
+          calcularTotalCarrito();
+      }
+    });
+}
+
+function esHamburguesaOrParrilla(producto) {
+    if (producto.categoria === "Hamburguesas" || producto.categoria === "Parrilla"){
+        return true;
+    } 
+    return false;
 }
 
 
-//-------------MODAL CARRITO ----------//
+//-------------SIDEBAR CARRITO DE COMPRAS ----------//
 
 
-function agregarAlCarrito() {
-    for(let i=0; i<carritoCompras.length; i++) { 
-        totalAPagar +=  carritoCompras[i].precio
-    }
-    totalCarrito.innerText =`$${totalAPagar}` 
-    saveCarritoToStorage()
 
+SidebarCarritoBtn.addEventListener("click", () => {
+  sidebarCarrito.classList.add("active");
+  sidebarCarritoCompras()
+});
+
+cerrarSidebar.addEventListener("click", () => {
+  sidebarCarrito.classList.remove("active");
+});
+
+//sólo se ejecuta en donde se hace click y no en los elementos del padre
+contenedorSidebarCarrito.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+function sidebarCarritoCompras() {
+  let bodySidebar = document.getElementById("body-sidebar");
+  bodySidebar.innerHTML = "";
+
+  //Titulo
+  let titulo = document.createElement("div");
+  titulo.className = "sidebar-titulo";
+  titulo.innerHTML = `
+    <h3> Mi pedido</h3>
+    <hr>
+    `;
+  bodySidebar.append(titulo); 
+
+  //Produtos carrito
+  let productosCarrito = document.createElement("div");
+  productosCarrito.className = "sidebar-productos";
+
+  if (!carritoCompras.length) {
+    productosCarrito.innerHTML = `
+        <span class='sidebar-productos__sin-productos'>
+            Cuando agregues productos se verán aquí.
+        </span>
+        `
+        bodySidebar.append(productosCarrito);     
+  } else {
+    carritoCompras.forEach((producto) => {
+
+      let headerProducto = document.createElement("div");
+      headerProducto.className = 'sidebar-productos__productos'
+      headerProducto.innerHTML =`
+      <div class='sidebar-productos__productos--left'>
+        (${producto.cantidad}) ${producto.nombre}
+      </div>
+      `;
+
+      let descripcionProducto = document.createElement("div");
+      descripcionProducto.className = 'sidebar-productos__productos--right'
+
+      // Precio producto
+      let precio = document.createElement("span");
+      precio.innerHTML = `$${producto.cantidad*producto.precio}`;
+
+      // boton Editar
+      let editarBtn = document.createElement("button");
+      editarBtn.className = "editar";
+      editarBtn.dataset.productoId = producto.id
+      editarBtn.innerHTML = "Editar";
+      editarBtn.addEventListener('click', editarProducto)
+
+      // boton Editar
+      let eliminarBtn = document.createElement("button");
+      eliminarBtn.className = "eliminar";
+      eliminarBtn.dataset.productoId = producto.id
+      eliminarBtn.innerHTML = "Eliminar";
+      eliminarBtn.addEventListener("click", eliminarProducto);
+      
+      descripcionProducto.append(precio)
+      descripcionProducto.append(editarBtn)
+      descripcionProducto.append(eliminarBtn)
+      headerProducto.append(descripcionProducto)
+      productosCarrito.append(headerProducto);
+      
+      if(esHamburguesaOrParrilla(producto)){
+          let descripcionAcompanante = document.createElement("div");
+          descripcionAcompanante.className = "sidebar-acompanante";
+          descripcionAcompanante.innerHTML = `
+          <div class='sidebar-acompanante__option'>
+            <span>Elige tu acompañante</span>
+            <span>-${producto.acompanante}</span>
+          </div>
+          <div class='sidebar-acompanante__option'>
+            <span>Elige tu salsa</span>
+            <span>-${producto.salsa}</span>
+          </div>
+          `;
+          productosCarrito.append(descripcionAcompanante); 
+      } 
+        let hr = document.createElement("hr");
+        productosCarrito.append(hr);
+
+    })
+    bodySidebar.append(productosCarrito);
+  }
+
+  //Total carrito
+  let footer = document.createElement("div");
+  footer.className = "sidebar-footer";
+  footer.innerHTML = `
+    <span> Total</span>
+    <span id='total-sidebar'> $${totalAPagar} </span>
+    `;
+  bodySidebar.append(footer); 
+
+
+}
+
+function eliminarProducto(event) {
+  let id = parseInt(event.target.dataset.productoId, 10);
+  let indexProducto = carritoCompras.findIndex((el) => el.id === id);
+  carritoCompras.splice(indexProducto,1);
+  calcularTotalCarrito();
+  sidebarCarritoCompras();
+}
+
+function editarProducto(event) {
+  console.log(event.target.dataset.productoId)
+}
+
+//-------------CALCULAR TOTAL EN EL CARRITO DE COMPRAS ----------//
+
+function calcularTotalCarrito() {
+  totalAPagar = 0;
+  carritoCompras.forEach((el) => {
+    totalAPagar += el.precio * el.cantidad
+  })
+
+  totalCarrito.innerText = `$${totalAPagar}`;
+  saveCarritoToStorage();
 }
 
 function saveCarritoToStorage() {
-    localStorage.setItem('carrito', JSON.stringify(carritoCompras))
+  localStorage.setItem("carrito", JSON.stringify(carritoCompras));
 }

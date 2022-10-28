@@ -43,12 +43,22 @@
 }
 .carrito-compras {
   align-self: end;
-  margin-left: 20px;
-  img {
-    margin-right: 10px;
-    margin-bottom: 5px;
-    width: 50px;
-    height: 50px;
+  margin-bottom: 5px;
+  &__button {
+    background-color: inherit;
+    border: none;
+    transition: transform 0.2s;
+    background-color: #ffce12;
+    border-radius: 50%;
+    padding: 5px;
+    img {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+    &:hover {
+      transform: translateY(-0.2rem);
+    }
   }
 }
 /* ----- Estilos select Boostrap ------*/
@@ -177,10 +187,10 @@
   padding: 10px;
   margin-top: -100%;
   transition: all 0.5s;
-  @media(max-width: 1200px){
+  @media (max-width: 1200px) {
     max-width: 80%;
   }
-  @media(max-width: 800px){
+  @media (max-width: 800px) {
     max-width: 95%;
   }
 }
@@ -214,13 +224,14 @@
   &__img {
     width: auto;
     height: 100px;
-    @media(max-width: 430px){
+    @media (max-width: 430px) {
       display: none;
     }
   }
   &__descripcion {
     margin-left: 10px;
-    h3 {
+    min-width: 400px;
+    min-height: 400px h3 {
       padding-top: 10px;
       font-weight: bold;
       font-family: "Yeseva One", cursive;
@@ -255,9 +266,9 @@
 .modal-footer {
   height: 55px;
   box-shadow: 0px -8px 5px -7px rgba(0, 0, 0, 0.1);
-  &__validacion{
-    width:100%;
-    color:red;
+  &__validacion {
+    width: 100%;
+    color: red;
     font-weight: bold;
     font-size: 12px;
     text-align: start;
@@ -295,6 +306,115 @@
       margin-left: 20px;
     }
   }
+}
+
+/* --------Sidebar carrito de compras--------*/
+
+.sidebar-carrito {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contenedor-sidebar {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  min-width:300px;
+  // background-color: #1c1c1c;
+  background-color: #fff;
+  height: 100vh;
+  transition: all 0.5s;
+  transform: translateX(-100%);
+}
+
+.active .contenedor-sidebar {
+  transform: translateX(0%);
+}
+
+.body-sidebar {
+  padding: 30px 10px;
+}
+
+/* --------Sidebar titulo--------*/
+
+.sidebar-titulo {
+  padding-top: 10px;
+  font-weight: bold;
+  font-family: "Yeseva One", cursive;
+  height: 100px;
+}
+
+/* --------Sidebar Productos--------*/
+
+.sidebar-productos {
+  width: 100%;
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  &__productos {
+    width: 95%;
+    display: flex;
+    justify-content:space-between;
+    &--left{
+      font-weight: bold;
+    }
+    &--right{
+      display: flex;
+      flex-direction:column;
+      span{
+        font-weight: bold;
+        font-family: "Yeseva One", cursive;
+      }
+      button{
+        text-align: right;
+        background-color:inherit;
+        border: none;
+        font-size:12px;
+      }
+    }
+  }
+  &__sin-productos{
+    color:gray;
+    margin-top: 20px;
+  }
+}
+
+.eliminar{
+  color: #ff0000;
+}
+
+.sidebar-acompanante{
+  font-size: 14px;
+  color: #808080;
+  &__option{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+
+}
+
+/* --------Sidebar Footer--------*/
+
+.sidebar-footer{
+  width: 95%;
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight: bold;
+  font-size: 16px;
+  height:80px;
 }
 
 /* --------media querys DOMICILIOS--------*/
