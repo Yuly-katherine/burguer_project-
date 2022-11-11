@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FAVICON -->
     <link rel="shortcut icon" href="../img/favicon.png" />
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Satisfy&family=Yeseva+One&display=swap"
       rel="stylesheet"
     />
+     <!-- ANIMATE -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <!--CSS-->
     <link rel="stylesheet" href="../css/styles.css" />
     <title>Burguer</title>
   </head>
@@ -43,8 +47,9 @@
           </h1>
           <form
             class="burguer-nosotros__formulario-formulario"
-            action=""
-            id="nosotros"
+            action="https://formsubmit.co/kathegomv@gmail.com" method="POST"
+            target="_blank"
+            id="formulario-nosotros"
           >
             <div class="burguer-nosotros__info">
               <label class="burguer-nosotros__label" for="cargo">Cargo</label>
@@ -72,8 +77,12 @@
               <label class="burguer-nosotros__label" for="edad">Edad</label>
               <input
                 class="burguer-nosotros__input"
-                type="text"
+                type="number"
                 name="edad"
+                type='number'
+                min="1" 
+                pattern="^[0-9]+" 
+                inputmode="numeric"
                 required
               />
             </div>
@@ -96,6 +105,9 @@
                 class="burguer-nosotros__input"
                 type="numero"
                 name="numero"
+                min="1" 
+                pattern="^[0-9]+" 
+                inputmode="numeric"
                 required
               />
             </div>
@@ -128,9 +140,14 @@
         </div>
       </footer>
     </div>
+    <!--ANIMATE -->
     <script src="../animated/wow.min.js"></script>
     <script>
       new WOW().init();
     </script>
+    <!--SWEET ALERT -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--JAVASCRIPT -->
+    <script src="../javascript/trabajaConNosotros.js"></script>
   </body>
 </html>
