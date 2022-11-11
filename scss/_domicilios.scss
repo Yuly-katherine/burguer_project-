@@ -1,4 +1,4 @@
-/* ------------------------VISTA DOMICILIOS-------------------*/
+/* ------------------------PÁGINA DOMICILIOS-------------------*/
 /* -----Imagen inicial ------*/
 
 .burguer-content {
@@ -15,9 +15,17 @@
 /* -----Titulo ó Encabezado ------*/
 
 .burguer-domicilios {
-  padding-top: 50px;
+  position: sticky;
+  top: 0;
+  left:0;
+  right: 0;
+  z-index: 100;
+  background-color:white;
+  padding: 10px 0 20px 0;
   display: flex;
   width: 100%;
+  height: 130px;
+
   &__titulo {
     width: 100%;
     display: flex;
@@ -83,7 +91,7 @@
 /* -----cards de los productos ------*/
 
 .domicilios-productos {
-  margin: 20px auto;
+  margin: 10px auto 50px auto;
   padding: 5px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -161,6 +169,7 @@
 /* --------Modal Producto Seleccionado--------*/
 
 .modal-producto {
+  z-index: 300;
   position: fixed;
   top: 0;
   width: 100%;
@@ -311,6 +320,7 @@
 /* --------Sidebar carrito de compras--------*/
 
 .sidebar-carrito {
+  z-index: 200;
   position: fixed;
   top: 0;
   left: 0;
@@ -332,7 +342,6 @@
   width: 100%;
   max-width: 350px;
   min-width:300px;
-  // background-color: #1c1c1c;
   background-color: #fff;
   height: 100vh;
   transition: all 0.5s;
@@ -360,7 +369,7 @@
 
 .sidebar-productos {
   width: 100%;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 220px);
   overflow-y: auto;
   &__productos {
     width: 95%;
@@ -409,12 +418,34 @@
 
 .sidebar-footer{
   width: 95%;
-  display: flex;
-  justify-content:space-between;
-  align-items:center;
-  font-weight: bold;
-  font-size: 16px;
-  height:80px;
+  height:130px;
+  &__total {
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px 0;
+  }
+  &__btn{
+    font-family: "Montserrat", sans-serif;
+    background-color: black;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 2px;
+    transition: transform 0.2s;
+    text-decoration: none;
+    &:hover {
+      transform: translateY(-0.1rem);
+    }
+    a:link, a:active {
+      text-decoration:none;
+    }
+  }
+
 }
 
 /* --------media querys DOMICILIOS--------*/

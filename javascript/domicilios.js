@@ -1,9 +1,29 @@
-//-------------VARIABLES----------//
 
+//***-------------OBTENER INFORMACIÓN DE LOS PRODUCTOS ----------***//
+
+let productos = [];
+
+fetch('../productos/productos.json') 
+.then( (response) => response.json() )
+    .then( (data) => {
+        productos = data
+        renderizarProductos(productos);
+    }) 
+
+
+
+//***-------------VARIABLES GENERALES----------***//
+
+
+//-carrito de compras-//
 let carritoCompras = [];
 let totalAPagar = 0;
 let totalCarrito = document.getElementById("total-carrito-compras");
 totalCarrito.innerText = `$${totalAPagar}`;
+
+//-Modificar producto del carrito de compras-//
+let ModificarProductoCarrito = false;
+
 
 //-Modal producto-//
 let modalProducto = document.getElementById("modal-producto");
@@ -12,13 +32,18 @@ let contenedorModalProducto = document.getElementById(
 );
 let cerrarModal = document.getElementById("modal-producto-cerrar");
 
+
+
 //-Sidebar carrito de compras-//
 let SidebarCarritoBtn = document.getElementById("cart-btn");
 let sidebarCarrito = document.getElementById("sidebar-carrito");
 let contenedorSidebarCarrito = document.getElementById("contenedor-sidebar");
 let cerrarSidebar = document.getElementById("sidebar-cerrar");
 
-//-------------MOSTRAR DATOS DESDE LOCALSTORAGE----------//
+
+
+
+//***-------------MOSTRAR DATOS DESDE LOCALSTORAGE----------***//
 
 carritoFromStorage();
 
@@ -29,7 +54,10 @@ function carritoFromStorage() {
   }
 }
 
-//-------------FILTRAR PRODUCTOS----------//
+
+
+
+//***-------------FILTRAR PRODUCTOS----------***//
 
 let botonFiltrar = document.getElementById("filtrarProductos");
 botonFiltrar.addEventListener("change", () => {
@@ -49,9 +77,11 @@ function filtrarProductos(producto) {
   }
 }
 
-//-------------PRODUCTOS EN EL HTML----------//
 
-renderizarProductos(productos);
+
+
+//***------------- CARDS PRODUCTOS ----------***//
+
 
 function renderizarProductos(lista) {
   let listaProductos = document.getElementById("productos");
@@ -87,7 +117,7 @@ function renderizarProductos(lista) {
     cardBtn.innerHTML = "Agregar";
     cardBtn.addEventListener("click", () => {
       modalProducto.classList.add("modal-active");
-      ModalProductoSeleccionado(producto);
+      ModalProductoSeleccionado(producto, false);
     });
 
     cardInfo.append(cardTitulo);
@@ -101,8 +131,12 @@ function renderizarProductos(lista) {
   }
 }
 
-//-------------MODAL PRODUCTO SELECCIONADO ----------//
 
+
+
+//***-------------MODAL PRODUCTO SELECCIONADO ----------***//
+
+// Desactivar ventana modal
 cerrarModal.addEventListener("click", () => {
   modalProducto.classList.remove("modal-active");
 });
@@ -113,7 +147,8 @@ contenedorModalProducto.addEventListener("click", (event) => {
 });
 
 
-function ModalProductoSeleccionado(producto) {
+// HTML de la ventana modal
+function ModalProductoSeleccionado(producto, editar) {
   let totalPorProducto = producto.precio;
 
   let bodyModal = document.getElementById("body-modal-producto");
@@ -132,8 +167,10 @@ function ModalProductoSeleccionado(producto) {
   bodyModal.append(header);
 
   // modal opciones
-  if (esHamburguesaOrParrilla(producto)) {
 
+  // Validación de la categoria del producto, para saber si lleva acompañantes
+  if (esHamburguesaOrParrilla(producto)) {
+     
     let opciones = document.createElement("div");
     opciones.className = "modal-opciones";
     opciones.innerHTML = `
@@ -201,42 +238,101 @@ function ModalProductoSeleccionado(producto) {
     `;
   bodyModal.append(footer);
 
-  // calcular total por producto
+   // Evitar que el usuario pueda escribir números decimales o un caracter númerico "e" en el input type number
+   document.getElementById("cantidad").addEventListener("keydown", (event) => {
+    if(['.', 'e'].includes(event.key))
+    event.preventDefault();
+  });
+
+
+   // Mostrar que inputs radio están checkeados, cuando se está editando el producto
+   if (editar === true) {
+    checkedInputs('acompanante', producto.acompanante);
+    checkedInputs('salsa', producto.salsa);
+    cantidad.value = producto.cantidad
+  } 
+  
+  //Validar cuales elementos están checkeados en el input tipo radio, cuando se está editando un producto
+  function checkedInputs(name, value) {
+    document.querySelectorAll(`input[name="${name}"]`).forEach(element => {
+        if(element.value === value) {
+            element.checked = true;
+        }
+    });
+  }
+
+
+  // calcular el total por producto en el modal
   document.getElementById("cantidad").addEventListener("change", () => {
-    totalPorProducto = cantidad.value * producto.precio;
+    totalPorProducto = Math.round(cantidad.value) * producto.precio;
     document.getElementById(
       "total-producto"
     ).innerText = `$${totalPorProducto}`;
   });
 
-  // agragar al carrito
+
+  // Agregar producto al carrito de compras cuando se da click en botón "agregar"
   let productoEscogido = { ...producto };
   document.getElementById("agregar-seleccionado").addEventListener("click", () => {
+    if(editar === false){
+      agregarProductoCarrito();
+    } else {
+      editarProductoCarrito()
+    }
 
-      if (esHamburguesaOrParrilla(producto)) {
+  });
 
-        let acompanante = document.querySelector('input[name="acompanante"]:checked');
-        let salsa = document.querySelector('input[name="salsa"]:checked');
-        if (acompanante && salsa) {
-          productoEscogido.acompanante = acompanante.value;
-          productoEscogido.salsa = salsa.value;
-          productoEscogido.cantidad = totalPorProducto / producto.precio;
-          carritoCompras.push(productoEscogido);
-          modalProducto.classList.remove("modal-active");
-          calcularTotalCarrito();
-        } else {
-          document.getElementById("validacion").innerText =
-            "Por favor completa los datos*";
-        }
+
+  // agregar un nuevo producto al carrito
+  function agregarProductoCarrito() {
+
+     if (esHamburguesaOrParrilla(producto)) {
+      let acompanante = document.querySelector('input[name="acompanante"]:checked');
+      let salsa = document.querySelector('input[name="salsa"]:checked');
+      if (acompanante && salsa) {
+        productoEscogido.acompanante = acompanante.value;
+        productoEscogido.salsa = salsa.value;
+        productoEscogido.cantidad = totalPorProducto / producto.precio;
+        validarExistentesCarrito(productoEscogido)
+        modalProducto.classList.remove("modal-active");
+        calcularTotalCarrito();
       } else {
-          productoEscogido.cantidad = totalPorProducto / producto.precio;
-          carritoCompras.push(productoEscogido);
-          modalProducto.classList.remove("modal-active");
-          calcularTotalCarrito();
+        document.getElementById("validacion").innerText =
+          "Por favor completa los datos*";
       }
-    });
+    } else {
+        productoEscogido.cantidad = totalPorProducto / producto.precio;
+        validarExistentesCarrito(productoEscogido)
+        modalProducto.classList.remove("modal-active");
+        calcularTotalCarrito();
+    }
+    // Animación para el botón del carrito, cuando se agrega un nuevo producto
+    SidebarCarritoBtn.classList.add('animate__rubberBand')
+    setTimeout(() => {
+      SidebarCarritoBtn.classList.remove('animate__rubberBand')
+    }, 1500)
+  }
+
+
+  // Editar producto existente del carrito
+  function editarProductoCarrito(){
+    let indiceProducto = carritoCompras.findIndex((el) => el.id === producto.id)
+    let cantidadProducto = parseInt(cantidad.value, 10)
+    carritoCompras[indiceProducto].cantidad = cantidadProducto;
+    if (esHamburguesaOrParrilla(producto)){
+      let acompanante = document.querySelector('input[name="acompanante"]:checked');
+      let salsa = document.querySelector('input[name="salsa"]:checked');
+      carritoCompras[indiceProducto].acompanante = acompanante.value;
+      carritoCompras[indiceProducto].salsa = salsa.value;
+    } 
+    modalProducto.classList.remove("modal-active");
+    calcularTotalCarrito();
+    sidebarCarritoCompras();
+  }
 }
 
+
+// Validar si el producto escogido es una hamburguesa o tipo parrilla, para que el cliente seleccione los acompañantes
 function esHamburguesaOrParrilla(producto) {
     if (producto.categoria === "Hamburguesas" || producto.categoria === "Parrilla"){
         return true;
@@ -244,16 +340,31 @@ function esHamburguesaOrParrilla(producto) {
     return false;
 }
 
+// Validar si el producto escogido ya existe dentro del carrito de compras
+function validarExistentesCarrito(producto) {
+  let indiceProductoRepetido = -1;
+  if (esHamburguesaOrParrilla(producto)) {
+    indiceProductoRepetido = carritoCompras.findIndex((el) => el.id === producto.id && el.acompanante ===  producto.acompanante && el.salsa === producto.salsa);
+  } else {
+    indiceProductoRepetido = carritoCompras.findIndex((el) => el.id === producto.id);
+  }
+  indiceProductoRepetido === -1
+  ? carritoCompras.push(producto)
+  : carritoCompras[indiceProductoRepetido].cantidad += producto.cantidad
+}
 
-//-------------SIDEBAR CARRITO DE COMPRAS ----------//
 
 
+//***-------------SIDEBAR CARRITO DE COMPRAS ----------***//
 
+
+//Activar ventana sidebar
 SidebarCarritoBtn.addEventListener("click", () => {
   sidebarCarrito.classList.add("active");
   sidebarCarritoCompras()
 });
 
+//Desactivar ventana sidebar
 cerrarSidebar.addEventListener("click", () => {
   sidebarCarrito.classList.remove("active");
 });
@@ -263,6 +374,9 @@ contenedorSidebarCarrito.addEventListener("click", (event) => {
   event.stopPropagation();
 });
 
+
+
+//HTML del sidebar
 function sidebarCarritoCompras() {
   let bodySidebar = document.getElementById("body-sidebar");
   bodySidebar.innerHTML = "";
@@ -280,6 +394,7 @@ function sidebarCarritoCompras() {
   let productosCarrito = document.createElement("div");
   productosCarrito.className = "sidebar-productos";
 
+    //Validación si el carrito de compras tiene productos
   if (!carritoCompras.length) {
     productosCarrito.innerHTML = `
         <span class='sidebar-productos__sin-productos'>
@@ -287,7 +402,9 @@ function sidebarCarritoCompras() {
         </span>
         `
         bodySidebar.append(productosCarrito);     
+
   } else {
+    //Mostrar detalle de los prodcutos del carrito
     carritoCompras.forEach((producto) => {
 
       let headerProducto = document.createElement("div");
@@ -305,14 +422,14 @@ function sidebarCarritoCompras() {
       let precio = document.createElement("span");
       precio.innerHTML = `$${producto.cantidad*producto.precio}`;
 
-      // boton Editar
+      // boton Editar del carrito
       let editarBtn = document.createElement("button");
       editarBtn.className = "editar";
-      editarBtn.dataset.productoId = producto.id
+      editarBtn.dataset.product = JSON.stringify(producto)
       editarBtn.innerHTML = "Editar";
       editarBtn.addEventListener('click', editarProducto)
 
-      // boton Editar
+      // boton eliminar del carrito
       let eliminarBtn = document.createElement("button");
       eliminarBtn.className = "eliminar";
       eliminarBtn.dataset.productoId = producto.id
@@ -325,6 +442,7 @@ function sidebarCarritoCompras() {
       headerProducto.append(descripcionProducto)
       productosCarrito.append(headerProducto);
       
+      // Validación de la categoria del producto, para saber si lleva acompañantes
       if(esHamburguesaOrParrilla(producto)){
           let descripcionAcompanante = document.createElement("div");
           descripcionAcompanante.className = "sidebar-acompanante";
@@ -344,20 +462,32 @@ function sidebarCarritoCompras() {
         productosCarrito.append(hr);
 
     })
+    
     bodySidebar.append(productosCarrito);
   }
 
-  //Total carrito
+  //Total carrito en el sidebar
   let footer = document.createElement("div");
   footer.className = "sidebar-footer";
   footer.innerHTML = `
+  <div class="sidebar-footer__total">
     <span> Total</span>
     <span id='total-sidebar'> $${totalAPagar} </span>
-    `;
+  </div>
+  <button id="continuar-pedido 
+  "class="sidebar-footer__btn"><a href="../pages/pedido.html">Continuar Pedido</a></button>
+  `;
   bodySidebar.append(footer); 
 
+  
 
 }
+
+//***-------------EDITAR, ELIMINAR Y CALCULAR TOTAL DEL CARRITO DE COMPRAS----------***//
+
+
+//-------------ELIMINAR PRODUCTO DEL CARRITO DE COMPRAS ----------//
+
 
 function eliminarProducto(event) {
   let id = parseInt(event.target.dataset.productoId, 10);
@@ -367,9 +497,17 @@ function eliminarProducto(event) {
   sidebarCarritoCompras();
 }
 
+//-------------EDITAR PRODUCTO DEL CARRITO DE COMPRAS ----------//
+
+
 function editarProducto(event) {
-  console.log(event.target.dataset.productoId)
+  let productSeleccionado = JSON.parse(event.target.dataset.product)
+  modalProducto.classList.add("modal-active");
+  ModalProductoSeleccionado(productSeleccionado, true)
 }
+
+
+
 
 //-------------CALCULAR TOTAL EN EL CARRITO DE COMPRAS ----------//
 
@@ -382,6 +520,10 @@ function calcularTotalCarrito() {
   totalCarrito.innerText = `$${totalAPagar}`;
   saveCarritoToStorage();
 }
+
+
+//-------------ALMACENAR DATOS DEL CARRITO DE COMPRAS EN LOCALSTORAGE ------///
+
 
 function saveCarritoToStorage() {
   localStorage.setItem("carrito", JSON.stringify(carritoCompras));
