@@ -466,21 +466,21 @@ function sidebarCarritoCompras() {
     bodySidebar.append(productosCarrito);
   }
 
-  //Total carrito en el sidebar
-  let footer = document.createElement("div");
-  footer.className = "sidebar-footer";
-  footer.innerHTML = `
-  <div class="sidebar-footer__total">
-    <span> Total</span>
-    <span id='total-sidebar'> $${totalAPagar} </span>
-  </div>
-  <button id="continuar-pedido 
-  "class="sidebar-footer__btn"><a href="../pages/pedido.html">Continuar Pedido</a></button>
-  `;
-  bodySidebar.append(footer); 
-
+  if (carritoCompras.length) {
+    //Total carrito en el sidebar
+    let footer = document.createElement("div");
+    footer.className = "sidebar-footer";
+    footer.innerHTML = `
+    <div class="sidebar-footer__total">
+      <span> Total</span>
+      <span id='total-sidebar'> $${totalAPagar} </span>
+    </div>
+    <button id="continuar-pedido 
+    "class="sidebar-footer__btn"><a href="../pages/pedido.html">Continuar Pedido</a></button>
+    `;
+    bodySidebar.append(footer); 
+  }
   
-
 }
 
 //***-------------EDITAR, ELIMINAR Y CALCULAR TOTAL DEL CARRITO DE COMPRAS----------***//

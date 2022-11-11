@@ -32,10 +32,8 @@ function calcularTotalCarrito() {
 //***------------- PRODUCTOS CARRITO----------***//
 
 function detalleCarrito(lista) {
-    console.log(lista);  
     let detalleProducto = document.getElementById("detalle-carrito")
     detalleProducto.className="detalle-carrito"
-
 
     //Header
     let headerProducto = document.createElement("div");
@@ -72,22 +70,6 @@ function detalleCarrito(lista) {
         imagenProducto.innerHTML =`
         <img src="${producto.imagen}" alt="${producto.nombre}" />`;
 
-
-        if(esHamburguesaOrParrilla(producto)){
-            let descripcionAcompanante = document.createElement("div");
-            descripcionAcompanante.className = "detalle-acompanante";
-            descripcionAcompanante.innerHTML = `
-            <div class='sidebar-acompanante__option'>
-              <span>Elige tu acompañante</span>
-              <span>-${producto.acompanante}</span>
-            </div>
-            <div class='sidebar-acompanante__option'>
-              <span>Elige tu salsa</span>
-              <span>-${producto.salsa}</span>
-            </div>
-            `;
-            imagenProducto.append(descripcionAcompanante); 
-        } 
         bodyProducto.append(imagenProducto)
     
         //PRECIO
@@ -149,12 +131,3 @@ function detalleCarrito(lista) {
             cancelButtonColor: '#000',
         })
     }
-
-    // Validar si el producto escogido es una hamburguesa o tipo parrilla, para que el cliente vea los acompañantes
-    function esHamburguesaOrParrilla(producto) {
-        if (producto.categoria === "Hamburguesas" || producto.categoria === "Parrilla"){
-            return true;
-        } 
-        return false;
-    }   
-    
