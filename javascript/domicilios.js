@@ -3,6 +3,7 @@
 
 let productos = [];
 
+//* con Fetch    
 fetch('../productos/productos.json') 
 .then( (response) => response.json() )
     .then( (data) => {
@@ -10,7 +11,14 @@ fetch('../productos/productos.json')
         renderizarProductos(productos);
     }) 
 
-
+//* con async-await    
+// async function getProductos() {
+//   const response = await fetch('../productos/productos.json')
+//   const data = await response.json()
+//   productos = data
+//   renderizarProductos(productos);
+// }     
+// getProductos()
 
 //***-------------VARIABLES GENERALES----------***//
 

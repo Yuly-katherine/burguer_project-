@@ -747,6 +747,9 @@
     width: 80px;
     height: 80px; }
 
+.hidden-spinner {
+  visibility: hidden; }
+
 /*------------- Estilos generales--------------*/
 .burguer {
   display: grid;
